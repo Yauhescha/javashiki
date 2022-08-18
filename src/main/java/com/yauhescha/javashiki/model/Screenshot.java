@@ -2,15 +2,17 @@ package com.yauhescha.javashiki.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
+@Data
 public class Screenshot {
 
     @SerializedName("original")
     @Expose
-    public String original;
+    private String original;
 
     @SerializedName("preview")
     @Expose
-    public String preview;
+    private String preview;
 
 }

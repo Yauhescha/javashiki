@@ -4,23 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
+//TODO: combine character and person in one class
+@Data
 public class Roles {
 
     @SerializedName("roles")
     @Expose
-    public List<String> roles = new ArrayList<>();
+    private List<String> roles = new ArrayList<>();
 
     @SerializedName("roles_russian")
     @Expose
-    public List<String> rolesRussian = new ArrayList<>();
+    private List<String> rolesRussian = new ArrayList<>();
 
     @SerializedName("character")
     @Expose
-    public Character character;
+    private Character character;
 
     @SerializedName("person")
     @Expose
-    public Person person;
+    private Person person;
 
 }

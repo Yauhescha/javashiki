@@ -2,27 +2,29 @@ package com.yauhescha.javashiki.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
+@Data
 public class Studio {
 
     @SerializedName("id")
     @Expose
-    public Long id;
+    private Long id;
 
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
 
     @SerializedName("filtered_name")
     @Expose
-    public String filteredName;
+    private String filteredName;
 
     @SerializedName("real")
     @Expose
-    public Boolean real;
+    private Boolean real;
 
     @SerializedName("image")
     @Expose
-    public String image;
+    private String image;
 
 }
