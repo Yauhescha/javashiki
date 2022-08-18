@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+//TODO: update all commented field
 public class AnimeFull extends Anime{
 
     @SerializedName("rating")
