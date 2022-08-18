@@ -3,7 +3,7 @@ package com.yauhescha.javashiki.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Studio {
+public class Character {
 
     @SerializedName("id")
     @Expose
@@ -13,16 +13,16 @@ public class Studio {
     @Expose
     public String name;
 
-    @SerializedName("filtered_name")
+    @SerializedName("russian")
     @Expose
-    public String filteredName;
-
-    @SerializedName("real")
-    @Expose
-    public Boolean real;
+    public String russian;
 
     @SerializedName("image")
     @Expose
-    public String image;
+    public Image image;
+
+    @SerializedName("url")
+    @Expose
+    public String url;
 
 }

@@ -72,17 +72,17 @@ public class Anime {
     @Expose
     public List<String> synonyms = new ArrayList<>();
 
-//    @SerializedName("license_name_ru")
-//    @Expose
-//    public Object licenseNameRu;
+    @SerializedName("license_name_ru")
+    @Expose
+    public String  licenseNameRu;
 
     @SerializedName("duration")
     @Expose
     public Long duration;
 
-//    @SerializedName("description")
-//    @Expose
-//    public Object description;
+    @SerializedName("description")
+    @Expose
+    public String  description;
 
     @SerializedName("description_html")
     @Expose
@@ -140,26 +140,25 @@ public class Anime {
     @Expose
     public List<String> fansubbers = new ArrayList<>();
     
-//    @SerializedName("fandubbers")
-//    @Expose
-//    public List<Object> fandubbers = new ArrayList<Object>();
+    @SerializedName("fandubbers")
+    @Expose
+    public List<String> fandubbers = new ArrayList<>();
     
-//    @SerializedName("licensors")
-//    @Expose
-//    public List<Object> licensors = new ArrayList<Object>();
+    @SerializedName("licensors")
+    @Expose
+    public List<String> licensors = new ArrayList<>();
 
     @SerializedName("genres")
     @Expose
     public List<Genre> genres = new ArrayList<>();
-    
-    
+
     @SerializedName("studios")
     @Expose
     public List<Studio> studios = new ArrayList<>();
     
-//    @SerializedName("videos")
-//    @Expose
-//    public List<Object> videos = new ArrayList<Object>();
+    @SerializedName("videos")
+    @Expose
+    public List<Video> videos = new ArrayList<>();
     
     @SerializedName("screenshots")
     @Expose
