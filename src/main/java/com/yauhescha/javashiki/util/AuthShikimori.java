@@ -2,9 +2,11 @@ package com.yauhescha.javashiki.util;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.yauhescha.javashiki.model.auth.AccessToken;
-import lombok.Getter;
+import com.yauhescha.javashiki.service.AnimeApiService;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import lombok.Getter;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -16,19 +18,23 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_SECR
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_NAME;
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_REDIRECT_URI;
 
-public class AuthShiki {
-//TODO remove comment
+
+public class AuthShikimori {
+    //TODO remove comment
     //String defaultLogin = "fpo81406";
     private static final Scanner scanner = new Scanner(System.in);
 
     @Getter
     private AccessToken accessToken;
 
-    public AccessToken initialAccessToken() throws Exception {
+    @Getter
+    private AnimeApiService animeApi = new AnimeApiService(this);
+
+    public AccessToken initialAccessToken() {
         return initialAccessToken(null);
     }
 
-    public AccessToken initialAccessToken(String authorizationCode) throws Exception {
+    public AccessToken initialAccessToken(String authorizationCode) {
         AccessToken accessToken;
         Optional<AccessToken> maybeToken = DefaultTokenStorage.loadToken();
         if (maybeToken.isEmpty()) {
@@ -38,11 +44,11 @@ public class AuthShiki {
         } else {
             accessToken = maybeToken.get();
         }
-
+        this.accessToken = accessToken;
         return accessToken;
     }
 
-    private AccessToken getAuthorization(String code) throws Exception {
+    private AccessToken getAuthorization(String code) {
         if (code == null) {
             System.out.println("Please write code\n");
             code = scanner.nextLine();
@@ -55,12 +61,17 @@ public class AuthShiki {
         return accessToken;
     }
 
-    private void showAuthorizationCode() throws URISyntaxException {
-        URI url = AuthMethodCreator.createCodeRequest(APPLICATION_CLIENT_ID,
-                APPLICATION_CLIENT_SECRET, APPLICATION_REDIRECT_URI).url().toURI();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(url.toString());
+    private void showAuthorizationCode() {
+        try {
+            URI url = AuthMethodCreator.createCodeRequest(APPLICATION_CLIENT_ID,
+                    APPLICATION_CLIENT_SECRET, APPLICATION_REDIRECT_URI).url().toURI();
+            WebDriver driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.get(url.toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
 }

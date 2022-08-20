@@ -16,7 +16,7 @@ public final class DefaultTokenStorage {
 
     private static Path tokenPath = Paths.get("token.json");
 
-    public static Optional<AccessToken> loadToken() throws Exception {
+    public static Optional<AccessToken> loadToken() {
         try {
             if (Files.isRegularFile(tokenPath)) {
                 String fileText = Utils.readFileText(tokenPath);
@@ -25,16 +25,16 @@ public final class DefaultTokenStorage {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            throw new Exception(e);
+            throw new RuntimeException(e);
         }
         return Optional.empty();
     }
 
-    public static void saveToken(AccessToken token) throws Exception {
+    public static void saveToken(AccessToken token) {
         try {
             Files.write(tokenPath, Collections.singleton(Utils.toJson(token)), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new Exception(e);
+            throw new RuntimeException(e);
         }
     }
 }

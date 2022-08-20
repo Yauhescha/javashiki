@@ -25,14 +25,14 @@ public class ShikiInfo {
     public static final String GRANT_TYPE_AUTHORIZATION_CODE = "authorization_code";
     public static final String GRANT_TYPE_REFRESH_TOKEN = "refresh_token";
 
-//    public static final String METHOD_ANIMES_GET = "animes";
-//    public static final String METHOD_ANIMES_GET_ID = METHOD_ANIMES_GET + "/%s";
-//    public static final String METHOD_ANIMES_ROLES = METHOD_ANIMES_GET_ID + "/roles";
-//    public static final String METHOD_ANIMES_SIMILAR = METHOD_ANIMES_GET_ID + "/similar";
-//    public static final String METHOD_ANIMES_RELATED = METHOD_ANIMES_GET_ID + "/related";
-//    public static final String METHOD_ANIMES_SCREENSHOTS = METHOD_ANIMES_GET_ID + "/screenshots";
-//    public static final String METHOD_ANIMES_FRANCHISE = METHOD_ANIMES_GET_ID + "/franchise";
-//    public static final String METHOD_ANIMES_EXTERNAL_LINKS = METHOD_ANIMES_GET_ID + "/external_links";
+    public static final String METHOD_ANIMES_GET = "/animes";
+    public static final String METHOD_ANIMES_GET_ID = METHOD_ANIMES_GET + "/%s";
+    public static final String METHOD_ANIMES_ROLES = METHOD_ANIMES_GET_ID + "/roles";
+    public static final String METHOD_ANIMES_SIMILAR = METHOD_ANIMES_GET_ID + "/similar";
+    public static final String METHOD_ANIMES_RELATED = METHOD_ANIMES_GET_ID + "/related";
+    public static final String METHOD_ANIMES_SCREENSHOTS = METHOD_ANIMES_GET_ID + "/screenshots";
+    public static final String METHOD_ANIMES_FRANCHISE = METHOD_ANIMES_GET_ID + "/franchise";
+    public static final String METHOD_ANIMES_EXTERNAL_LINKS = METHOD_ANIMES_GET_ID + "/external_links";
 
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
