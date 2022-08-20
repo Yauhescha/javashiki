@@ -10,6 +10,7 @@ import lombok.val;
 import java.lang.reflect.Type;
 
 public final class ImageDeserializer implements JsonDeserializer<Image> {
+
     @Override
     public Image deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         val object = json.getAsJsonObject();
