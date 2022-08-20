@@ -1,11 +1,11 @@
-package com.yauhescha.javashiki.model;
+package com.yauhescha.javashiki.model.domen;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
-public class Person {
+public class Studio {
 
     @SerializedName("id")
     @Expose
@@ -15,16 +15,16 @@ public class Person {
     @Expose
     private String name;
 
-    @SerializedName("russian")
+    @SerializedName("filtered_name")
     @Expose
-    private String russian;
+    private String filteredName;
+
+    @SerializedName("real")
+    @Expose
+    private Boolean real;
 
     @SerializedName("image")
     @Expose
-    private Image image;
-
-    @SerializedName("url")
-    @Expose
-    private String url;
+    private String image;
 
 }

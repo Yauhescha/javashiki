@@ -1,4 +1,4 @@
-package com.yauhescha.javashiki.model;
+package com.yauhescha.javashiki.model.domen;
 
 import java.util.ArrayList;
 import java.util.List;
