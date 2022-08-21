@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.experimental.UtilityClass;
 
-import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,11 +18,11 @@ public class Utils {
         return str != null && str.length() > 0 && !str.equals("null");
     }
 
-    public String readFileText(@NotNull Path path) throws IOException {
+    public String readFileText(Path path) throws IOException {
         return String.join("\n", Files.readAllLines(path, StandardCharsets.UTF_8));
     }
 
-    public <T> T fromJson(@NotNull String json, @NotNull Class<T> clazz) {
+    public <T> T fromJson(String json, Class<T> clazz) {
         try {
             System.out.println("from json to class: "+ clazz);
             return GSON.fromJson(json, clazz);
@@ -33,8 +32,7 @@ public class Utils {
         }
     }
 
-    @NotNull
-    public <T> String toJson(@NotNull T object) {
+    public <T> String toJson(T object) {
         return GSON.toJson(object);
     }
 }

@@ -18,9 +18,6 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_SECR
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_NAME;
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_REDIRECT_URI;
 
-
-//TODO remove comment
-//String defaultLogin = "fpo81406";
 public class AuthShikimori {
     private static final Scanner scanner = new Scanner(System.in);
 

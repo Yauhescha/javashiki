@@ -22,6 +22,11 @@ public class ApiRequest<T> {
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
 
+    protected T execute(String url) {
+        HttpRequest httpRequest = buildGetHttpRequest(URL_API_V1 + url, null);
+        return Utils.fromJson(executeJSON(httpRequest), responseType);
+    }
+
     private HttpRequest buildGetHttpRequest(String url, Map<String, Object> params) {
         HttpRequest request;
         if (params == null) {
