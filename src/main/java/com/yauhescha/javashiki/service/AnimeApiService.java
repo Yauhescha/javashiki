@@ -2,6 +2,7 @@ package com.yauhescha.javashiki.service;
 
 import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.AnimeFull;
+import com.yauhescha.javashiki.model.domen.Related;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
 import com.yauhescha.javashiki.util.ApiRequest;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET_ID;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_RELATED;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SCREENSHOTS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SIMILAR;
@@ -62,15 +64,17 @@ public class AnimeApiService {
     }
 
     public List<Anime> getSimilar(int animeId) {
-        Anime[] screenshots = new ApiRequest<>(auth, Anime[].class)
+        Anime[] animes = new ApiRequest<>(auth, Anime[].class)
                 .execute(String.format(METHOD_ANIMES_SIMILAR, animeId));
-        return Arrays.asList(screenshots);
+        return Arrays.asList(animes);
     }
-//
-//    public List<Related> getRelated(int animeId) {
-//        return null;
-//    }
-//
+
+    public List<Related> getRelated(int animeId) {
+        Related[] relatedList = new ApiRequest<>(auth, Related[].class)
+                .execute(String.format(METHOD_ANIMES_RELATED, animeId));
+        return Arrays.asList(relatedList);
+    }
+
 //    public Optional<Franchise> getFranchise(int animeId) {
 //        return Optional.empty();
 //    }
