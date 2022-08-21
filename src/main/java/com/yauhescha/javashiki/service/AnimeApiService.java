@@ -1,8 +1,10 @@
 package com.yauhescha.javashiki.service;
 
+import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.AnimeFull;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
+import com.yauhescha.javashiki.util.ApiRequest;
 import com.yauhescha.javashiki.util.AuthShikimori;
 import lombok.RequiredArgsConstructor;
 
@@ -16,25 +18,28 @@ import java.util.stream.Stream;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SCREENSHOTS;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SIMILAR;
 
 //TODO
 @RequiredArgsConstructor
 public class AnimeApiService {
     private final AuthShikimori auth;
 
-    public Optional<AnimeFull> getAnimeDetail(int animeId) {
-        String url = String.format(METHOD_ANIMES_GET_ID, animeId);
-        AnimeFull anime = new ApiRequest<>(auth, AnimeFull.class).execute(url);
+    public Optional<AnimeFull> getAnimeDetail(int animeId, boolean withAllScreenshots) {
+        AnimeFull anime = new ApiRequest<>(auth, AnimeFull.class)
+                .execute(String.format(METHOD_ANIMES_GET_ID, animeId));
         if (anime == null) {
             return Optional.empty();
         }
-        anime.setScreenshots(getScreenshots(animeId));
+        if (withAllScreenshots) {
+            anime.setScreenshots(getScreenshots(animeId));
+        }
         return Optional.of(anime);
     }
 
     public List<Screenshot> getScreenshots(int animeId) {
-        String url = String.format(METHOD_ANIMES_SCREENSHOTS, animeId);
-        Screenshot[] screenshots = new ApiRequest<>(auth, Screenshot[].class).execute(url);
+        Screenshot[] screenshots = new ApiRequest<>(auth, Screenshot[].class)
+                .execute(String.format(METHOD_ANIMES_SCREENSHOTS, animeId));
         if (screenshots == null) {
             return new ArrayList<>();
         }
@@ -42,8 +47,8 @@ public class AnimeApiService {
     }
 
     public List<Roles> getRoles(int animeId, boolean onlyCharacters) {
-        String url = String.format(METHOD_ANIMES_ROLES, animeId);
-        Roles[] roles = new ApiRequest<>(auth, Roles[].class).execute(url);
+        Roles[] roles = new ApiRequest<>(auth, Roles[].class)
+                .execute(String.format(METHOD_ANIMES_ROLES, animeId));
         if (roles == null) {
             return new ArrayList<>();
         }
@@ -56,13 +61,11 @@ public class AnimeApiService {
                 .collect(Collectors.toList());
     }
 
-//    public List<Anime> getAnimes() {
-//        return null;
-//    }
-//
-//    public List<Anime> getSimilar(int animeId) {
-//        return null;
-//    }
+    public List<Anime> getSimilar(int animeId) {
+        Anime[] screenshots = new ApiRequest<>(auth, Anime[].class)
+                .execute(String.format(METHOD_ANIMES_SIMILAR, animeId));
+        return Arrays.asList(screenshots);
+    }
 //
 //    public List<Related> getRelated(int animeId) {
 //        return null;
@@ -73,6 +76,10 @@ public class AnimeApiService {
 //    }
 //
 //    public List<ExternalLink> getExternalLinks(int animeId) {
+//        return null;
+//    }
+
+//    public List<Anime> getAnimes() {
 //        return null;
 //    }
 }

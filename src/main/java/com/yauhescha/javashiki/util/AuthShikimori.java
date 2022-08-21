@@ -35,11 +35,11 @@ public class AuthShikimori {
         initialAccessToken(authorizationCode);
     }
 
-    public AccessToken initialAccessToken() {
+    protected AccessToken initialAccessToken() {
         return initialAccessToken(null);
     }
 
-    public AccessToken initialAccessToken(String authorizationCode) {
+    private AccessToken initialAccessToken(String authorizationCode) {
         AccessToken accessToken;
         Optional<AccessToken> maybeToken = DefaultTokenStorage.loadToken();
         if (maybeToken.isEmpty()) {

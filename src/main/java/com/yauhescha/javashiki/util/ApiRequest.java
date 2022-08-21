@@ -1,9 +1,7 @@
-package com.yauhescha.javashiki.service;
+package com.yauhescha.javashiki.util;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.yauhescha.javashiki.constant.ShikiInfo;
-import com.yauhescha.javashiki.util.AuthShikimori;
-import com.yauhescha.javashiki.util.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
@@ -17,12 +15,12 @@ public class ApiRequest<T> {
     private final AuthShikimori authShikimori;
     protected final Class<T> responseType;
 
-    protected T execute(String url, Map<String, Object> params) {
+    public T execute(String url, Map<String, Object> params) {
         HttpRequest httpRequest = buildGetHttpRequest(URL_API_V1 + url, params);
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
 
-    protected T execute(String url) {
+    public T execute(String url) {
         HttpRequest httpRequest = buildGetHttpRequest(URL_API_V1 + url, null);
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
