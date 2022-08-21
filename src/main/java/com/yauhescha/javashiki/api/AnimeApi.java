@@ -95,7 +95,7 @@ public class AnimeApi {
 
     public List<Anime> getAnimes(AnimeSearchParameters parameters) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
-                .execute(String.format(METHOD_ANIMES_GET), parameters.getSearchParameters());
+                .execute(METHOD_ANIMES_GET, parameters.getSearchParameters());
         return Arrays.asList(animes);
     }
 
