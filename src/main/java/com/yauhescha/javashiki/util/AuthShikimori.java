@@ -19,9 +19,9 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_NAME;
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_REDIRECT_URI;
 
 
+//TODO remove comment
+//String defaultLogin = "fpo81406";
 public class AuthShikimori {
-    //TODO remove comment
-    //String defaultLogin = "fpo81406";
     private static final Scanner scanner = new Scanner(System.in);
 
     @Getter
@@ -29,6 +29,14 @@ public class AuthShikimori {
 
     @Getter
     private AnimeApiService animeApi = new AnimeApiService(this);
+
+    public AuthShikimori() {
+        initialAccessToken(null);
+    }
+
+    public AuthShikimori(String authorizationCode) {
+        initialAccessToken(authorizationCode);
+    }
 
     public AccessToken initialAccessToken() {
         return initialAccessToken(null);
