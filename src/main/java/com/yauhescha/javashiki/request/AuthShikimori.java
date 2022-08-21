@@ -1,8 +1,11 @@
-package com.yauhescha.javashiki.util;
+package com.yauhescha.javashiki.request;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.yauhescha.javashiki.model.auth.AccessToken;
-import com.yauhescha.javashiki.service.AnimeApiService;
+import com.yauhescha.javashiki.api.AnimeApi;
+import com.yauhescha.javashiki.util.AuthMethodCreator;
+import com.yauhescha.javashiki.util.DefaultTokenStorage;
+import com.yauhescha.javashiki.util.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -25,7 +28,7 @@ public class AuthShikimori {
     private AccessToken accessToken;
 
     @Getter
-    private AnimeApiService animeApi = new AnimeApiService(this);
+    private AnimeApi animeApi = new AnimeApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

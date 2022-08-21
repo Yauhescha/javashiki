@@ -1,7 +1,8 @@
-package com.yauhescha.javashiki.util;
+package com.yauhescha.javashiki.request;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.yauhescha.javashiki.constant.ShikiInfo;
+import com.yauhescha.javashiki.util.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 

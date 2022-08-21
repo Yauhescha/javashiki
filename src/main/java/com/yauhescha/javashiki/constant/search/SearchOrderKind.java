@@ -1,4 +1,4 @@
-package com.yauhescha.javashiki.util.search;
+package com.yauhescha.javashiki.constant.search;
 
 public enum SearchOrderKind {
     TV("tv"),

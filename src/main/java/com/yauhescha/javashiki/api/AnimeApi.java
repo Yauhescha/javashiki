@@ -1,4 +1,4 @@
-package com.yauhescha.javashiki.service;
+package com.yauhescha.javashiki.api;
 
 import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.AnimeFull;
@@ -7,8 +7,9 @@ import com.yauhescha.javashiki.model.domen.Franchise;
 import com.yauhescha.javashiki.model.domen.Related;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
-import com.yauhescha.javashiki.util.ApiRequest;
-import com.yauhescha.javashiki.util.AuthShikimori;
+import com.yauhescha.javashiki.model.reques.AnimeSearchParameters;
+import com.yauhescha.javashiki.request.ApiRequest;
+import com.yauhescha.javashiki.request.AuthShikimori;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.stream.Stream;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_EXTERNAL_LINKS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_FRANCHISE;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_RELATED;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
@@ -28,7 +30,7 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SIMILAR;
 
 //TODO
 @RequiredArgsConstructor
-public class AnimeApiService {
+public class AnimeApi {
     private final AuthShikimori auth;
 
     public Optional<AnimeFull> getAnimeDetail(int animeId, boolean withAllScreenshots) {
@@ -91,9 +93,11 @@ public class AnimeApiService {
         return Optional.of(franchise);
     }
 
-//    public List<Anime> getAnimes() {
-//        return null;
-//    }
+    public List<Anime> getAnimes(AnimeSearchParameters parametes) {
+        Anime[] animes = new ApiRequest<>(auth, Anime[].class)
+                .execute(String.format(METHOD_ANIMES_GET), parametes.getSearchParameters());
+        return Arrays.asList(animes);
+    }
 
 //    public List<Topic> getTopics() {
 //        return null;
