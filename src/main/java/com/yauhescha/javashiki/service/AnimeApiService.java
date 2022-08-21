@@ -2,6 +2,7 @@ package com.yauhescha.javashiki.service;
 
 import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.AnimeFull;
+import com.yauhescha.javashiki.model.domen.ExternalLink;
 import com.yauhescha.javashiki.model.domen.Related;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_EXTERNAL_LINKS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_RELATED;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
@@ -75,12 +77,14 @@ public class AnimeApiService {
         return Arrays.asList(relatedList);
     }
 
+    public List<ExternalLink> getExternalLinks(int animeId) {
+        ExternalLink[] links = new ApiRequest<>(auth, ExternalLink[].class)
+                .execute(String.format(METHOD_ANIMES_EXTERNAL_LINKS, animeId));
+        return Arrays.asList(links);
+    }
+
 //    public Optional<Franchise> getFranchise(int animeId) {
 //        return Optional.empty();
-//    }
-//
-//    public List<ExternalLink> getExternalLinks(int animeId) {
-//        return null;
 //    }
 
 //    public List<Anime> getAnimes() {
