@@ -94,4 +94,8 @@ public class AnimeApiService {
 //    public List<Anime> getAnimes() {
 //        return null;
 //    }
+
+//    public List<Topic> getTopics() {
+//        return null;
+//    }
 }
