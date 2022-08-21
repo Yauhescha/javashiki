@@ -3,6 +3,7 @@ package com.yauhescha.javashiki.service;
 import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.AnimeFull;
 import com.yauhescha.javashiki.model.domen.ExternalLink;
+import com.yauhescha.javashiki.model.domen.Franchise;
 import com.yauhescha.javashiki.model.domen.Related;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_EXTERNAL_LINKS;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_FRANCHISE;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_RELATED;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
@@ -83,9 +85,11 @@ public class AnimeApiService {
         return Arrays.asList(links);
     }
 
-//    public Optional<Franchise> getFranchise(int animeId) {
-//        return Optional.empty();
-//    }
+    public Optional<Franchise> getFranchise(int animeId) {
+        Franchise franchise = new ApiRequest<>(auth, Franchise.class)
+                .execute(String.format(METHOD_ANIMES_FRANCHISE, animeId));
+        return Optional.of(franchise);
+    }
 
 //    public List<Anime> getAnimes() {
 //        return null;
