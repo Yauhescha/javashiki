@@ -93,9 +93,9 @@ public class AnimeApi {
         return Optional.of(franchise);
     }
 
-    public List<Anime> getAnimes(AnimeSearchParameters parametes) {
+    public List<Anime> getAnimes(AnimeSearchParameters parameters) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
-                .execute(String.format(METHOD_ANIMES_GET), parametes.getSearchParameters());
+                .execute(String.format(METHOD_ANIMES_GET), parameters.getSearchParameters());
         return Arrays.asList(animes);
     }
 

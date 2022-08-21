@@ -46,7 +46,7 @@ public class ApiRequest<T> {
 
         if (checkCode401(code)) return executeJSON(request);
 
-        if(code == 404) {
+        if (code == 404) {
             return null;
         }
 

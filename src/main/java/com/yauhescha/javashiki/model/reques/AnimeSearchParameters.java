@@ -52,59 +52,59 @@ public class AnimeSearchParameters {
 
     // search by name
     private String search;
-    
-    public Map<String, Object> getSearchParameters(){
+
+    public Map<String, Object> getSearchParameters() {
         Map<String, Object> parameters = new HashMap<>();
-        if(page!=null){
-            parameters.put("page",page);
+        if (page != null) {
+            parameters.put("page", page);
         }
-        if(limit!=null){
-            parameters.put("limit",limit);
+        if (limit != null) {
+            parameters.put("limit", limit);
         }
-        if(order!=null){
-            parameters.put("order",order);
+        if (order != null) {
+            parameters.put("order", order);
         }
-        if(kind!=null){
-            parameters.put("kind",kind);
+        if (kind != null) {
+            parameters.put("kind", kind);
         }
-        if(status!=null){
-            parameters.put("status",status);
+        if (status != null) {
+            parameters.put("status", status);
         }
-        if(season!=null){
-            parameters.put("season",season);
+        if (season != null) {
+            parameters.put("season", season);
         }
-        if(score!=null){
-            parameters.put("score",score);
+        if (score != null) {
+            parameters.put("score", score);
         }
-        if(duration!=null){
-            parameters.put("duration",duration);
+        if (duration != null) {
+            parameters.put("duration", duration);
         }
-        if(rating!=null){
-            parameters.put("rating",rating);
+        if (rating != null) {
+            parameters.put("rating", rating);
         }
-        if(genre!=null){
-            parameters.put("genre",genre);
+        if (genre != null) {
+            parameters.put("genre", genre);
         }
-        if(studio!=null){
-            parameters.put("studio",studio);
+        if (studio != null) {
+            parameters.put("studio", studio);
         }
-        if(franchise!=null){
-            parameters.put("franchise",franchise);
+        if (franchise != null) {
+            parameters.put("franchise", franchise);
         }
-        if(censored!=null){
-            parameters.put("censored",censored);
+        if (censored != null) {
+            parameters.put("censored", censored);
         }
-        if(mylist!=null){
-            parameters.put("mylist",mylist);
+        if (mylist != null) {
+            parameters.put("mylist", mylist);
         }
-        if(ids!=null){
-            parameters.put("ids",ids);
+        if (ids != null) {
+            parameters.put("ids", ids);
         }
-        if(exclude_ids!=null){
-            parameters.put("exclude_ids",exclude_ids);
+        if (exclude_ids != null) {
+            parameters.put("exclude_ids", exclude_ids);
         }
-        if(search!=null){
-            parameters.put("search",search);
+        if (search != null) {
+            parameters.put("search", search);
         }
         return parameters;
     }
