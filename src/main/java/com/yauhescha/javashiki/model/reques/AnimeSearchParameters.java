@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.Map;
 
+//TODO change just enums to set
 @Builder
 public class AnimeSearchParameters {
 
