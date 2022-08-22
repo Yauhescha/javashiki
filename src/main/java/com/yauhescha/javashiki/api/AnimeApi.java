@@ -121,4 +121,13 @@ public class AnimeApi {
         }
         return Arrays.asList(topics);
     }
+
+    public List<Topic> getTopics(int animeId, AnimeTopicParameters parameters) {
+        Topic[] topics = new ApiRequest<>(auth, Topic[].class)
+                .execute(String.format(METHOD_ANIMES_TOPICS, animeId), parameters.getSearchParameters());
+        if (topics == null) {
+            return new ArrayList<>();
+        }
+        return Arrays.asList(topics);
+    }
 }
