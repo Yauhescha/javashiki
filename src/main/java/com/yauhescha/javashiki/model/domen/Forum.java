@@ -7,22 +7,22 @@ public class Forum {
 
     @SerializedName("id")
     @Expose
-    public Long id;
+    private Long id;
 
     @SerializedName("position")
     @Expose
-    public Long position;
+    private Long position;
 
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
 
     @SerializedName("permalink")
     @Expose
-    public String permalink;
+    private String permalink;
 
     @SerializedName("url")
     @Expose
-    public String url;
+    private String url;
 
 }

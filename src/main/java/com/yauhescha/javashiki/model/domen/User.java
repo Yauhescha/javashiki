@@ -7,26 +7,26 @@ public class User {
 
     @SerializedName("id")
     @Expose
-    public Long id;
+    private Long id;
 
     @SerializedName("nickname")
     @Expose
-    public String nickname;
+    private String nickname;
 
     @SerializedName("avatar")
     @Expose
-    public String avatar;
+    private String avatar;
 
     @SerializedName("image")
     @Expose
-    public Image image;
+    private Image image;
 
     @SerializedName("last_online_at")
     @Expose
-    public String lastOnlineAt;
+    private String lastOnlineAt;
 
     @SerializedName("url")
     @Expose
-    public String url;
+    private String url;
 
 }

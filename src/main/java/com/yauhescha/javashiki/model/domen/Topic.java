@@ -2,76 +2,78 @@ package com.yauhescha.javashiki.model.domen;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
+@Data
 public class Topic {
 
     @SerializedName("id")
     @Expose
-    public Long id;
+    private Long id;
 
     @SerializedName("topic_title")
     @Expose
-    public String topicTitle;
+    private String topicTitle;
 
     @SerializedName("body")
     @Expose
-    public String body;
+    private String body;
 
     @SerializedName("html_body")
     @Expose
-    public String htmlBody;
+    private String htmlBody;
 
     @SerializedName("html_footer")
     @Expose
-    public String htmlFooter;
+    private String htmlFooter;
 
     @SerializedName("created_at")
     @Expose
-    public String createdAt;
+    private String createdAt;
 
     @SerializedName("comments_count")
     @Expose
-    public Long commentsCount;
+    private Long commentsCount;
 
     @SerializedName("forum")
     @Expose
-    public Forum forum;
+    private Forum forum;
 
     @SerializedName("user")
     @Expose
-    public User user;
+    private User user;
 
     @SerializedName("type")
     @Expose
-    public String type;
+    private String type;
 
     @SerializedName("linked_id")
     @Expose
-    public Long linkedId;
+    private Long linkedId;
 
     @SerializedName("linked_type")
     @Expose
-    public String linkedType;
+    private String linkedType;
 
     @SerializedName("linked")
     @Expose
-    public Anime linked;
+    private Anime linked;
 
     @SerializedName("viewed")
     @Expose
-    public Boolean viewed;
+    private Boolean viewed;
 
     @SerializedName("last_comment_viewed")
     @Expose
-    public Boolean lastCommentViewed;
+    private Boolean lastCommentViewed;
 
     @SerializedName("event")
     @Expose
-    public String event;
+    private String event;
 
     //TODO
 //    @SerializedName("episode")
 //    @Expose
-//    public Object episode;
+//    private Object episode;
 
 }

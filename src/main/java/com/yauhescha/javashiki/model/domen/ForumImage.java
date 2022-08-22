@@ -7,30 +7,30 @@ public class ForumImage {
 
     @SerializedName("x160")
     @Expose
-    public String x160;
+    private String x160;
 
     @SerializedName("x148")
     @Expose
-    public String x148;
+    private String x148;
 
     @SerializedName("x80")
     @Expose
-    public String x80;
+    private String x80;
 
     @SerializedName("x64")
     @Expose
-    public String x64;
+    private String x64;
 
     @SerializedName("x48")
     @Expose
-    public String x48;
+    private String x48;
 
     @SerializedName("x32")
     @Expose
-    public String x32;
+    private String x32;
 
     @SerializedName("x16")
     @Expose
-    public String x16;
+    private String x16;
 
 }
