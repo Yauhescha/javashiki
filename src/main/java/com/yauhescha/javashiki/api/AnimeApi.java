@@ -7,6 +7,7 @@ import com.yauhescha.javashiki.model.domen.Franchise;
 import com.yauhescha.javashiki.model.domen.Related;
 import com.yauhescha.javashiki.model.domen.Roles;
 import com.yauhescha.javashiki.model.domen.Screenshot;
+import com.yauhescha.javashiki.model.domen.Topic;
 import com.yauhescha.javashiki.model.reques.AnimeSearchParameters;
 import com.yauhescha.javashiki.request.ApiRequest;
 import com.yauhescha.javashiki.request.AuthShikimori;
@@ -27,6 +28,7 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_RELATED;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_ROLES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SCREENSHOTS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_SIMILAR;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ANIMES_TOPICS;
 
 //TODO
 @RequiredArgsConstructor
@@ -72,18 +74,27 @@ public class AnimeApi {
     public List<Anime> getSimilar(int animeId) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
                 .execute(String.format(METHOD_ANIMES_SIMILAR, animeId));
+        if (animes == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(animes);
     }
 
     public List<Related> getRelated(int animeId) {
         Related[] relatedList = new ApiRequest<>(auth, Related[].class)
                 .execute(String.format(METHOD_ANIMES_RELATED, animeId));
+        if (relatedList == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(relatedList);
     }
 
     public List<ExternalLink> getExternalLinks(int animeId) {
         ExternalLink[] links = new ApiRequest<>(auth, ExternalLink[].class)
                 .execute(String.format(METHOD_ANIMES_EXTERNAL_LINKS, animeId));
+        if (links == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(links);
     }
 
@@ -96,10 +107,18 @@ public class AnimeApi {
     public List<Anime> getAnimes(AnimeSearchParameters parameters) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
                 .execute(METHOD_ANIMES_GET, parameters.getSearchParameters());
+        if (animes == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(animes);
     }
 
-//    public List<Topic> getTopics() {
-//        return null;
-//    }
+    public List<Topic> getTopics(int animeId) {
+        Topic[] topics = new ApiRequest<>(auth, Topic[].class)
+                .execute(String.format(METHOD_ANIMES_TOPICS, animeId));
+        if (topics == null) {
+            return new ArrayList<>();
+        }
+        return Arrays.asList(topics);
+    }
 }

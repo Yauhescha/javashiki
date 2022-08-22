@@ -33,6 +33,7 @@ public class ShikiInfo {
     public static final String METHOD_ANIMES_SCREENSHOTS = METHOD_ANIMES_GET_ID + "/screenshots";
     public static final String METHOD_ANIMES_FRANCHISE = METHOD_ANIMES_GET_ID + "/franchise";
     public static final String METHOD_ANIMES_EXTERNAL_LINKS = METHOD_ANIMES_GET_ID + "/external_links";
+    public static final String METHOD_ANIMES_TOPICS = METHOD_ANIMES_GET_ID + "/topics";
 
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";

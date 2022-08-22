@@ -2,6 +2,7 @@ package com.yauhescha.javashiki.util;
 
 import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.model.domen.Anime;
+import com.yauhescha.javashiki.model.domen.Topic;
 import com.yauhescha.javashiki.model.reques.AnimeSearchParameters;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
