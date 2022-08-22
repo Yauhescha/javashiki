@@ -1,7 +1,10 @@
 com\yauhescha\javashiki\model\domen\Related.class
+com\yauhescha\javashiki\model\domen\ForumImage.class
 com\yauhescha\javashiki\model\domen\Link.class
+com\yauhescha\javashiki\model\domen\Forum.class
 com\yauhescha\javashiki\model\reques\AnimeSearchParameters.class
 com\yauhescha\javashiki\model\domen\Anime.class
+com\yauhescha\javashiki\constant\TopicKind.class
 com\yauhescha\javashiki\model\domen\Manga.class
 com\yauhescha\javashiki\model\domen\Studio.class
 com\yauhescha\javashiki\constant\search\SearchOrderKind.class
@@ -11,12 +14,15 @@ com\yauhescha\javashiki\model\domen\Character.class
 com\yauhescha\javashiki\model\domen\Video.class
 com\yauhescha\javashiki\model\domen\RatesStatusesStat.class
 com\yauhescha\javashiki\constant\search\SearchOrderDuration.class
+com\yauhescha\javashiki\model\domen\User.class
 com\yauhescha\javashiki\constant\search\SearchOrderListStatus.class
 com\yauhescha\javashiki\model\reques\AnimeSearchParameters$AnimeSearchParametersBuilder.class
 com\yauhescha\javashiki\model\domen\AnimeShort.class
 com\yauhescha\javashiki\constant\ShikiInfo.class
 com\yauhescha\javashiki\util\AuthMethodCreator.class
+com\yauhescha\javashiki\api\AnimeTopicParameters$AnimeTopicParametersBuilder.class
 com\yauhescha\javashiki\constant\search\SearchOrderRating.class
+com\yauhescha\javashiki\model\domen\Topic.class
 com\yauhescha\javashiki\util\Utils.class
 com\yauhescha\javashiki\request\ApiRequest.class
 com\yauhescha\javashiki\constant\search\SearchOrderStatus.class
@@ -25,6 +31,7 @@ com\yauhescha\javashiki\model\auth\AccessToken.class
 com\yauhescha\javashiki\model\domen\AnimeFull.class
 com\yauhescha\javashiki\model\domen\Screenshot.class
 com\yauhescha\javashiki\util\DefaultTokenStorage.class
+com\yauhescha\javashiki\api\AnimeTopicParameters.class
 com\yauhescha\javashiki\model\domen\Image.class
 com\yauhescha\javashiki\model\domen\RatesScoresStat.class
 com\yauhescha\javashiki\model\domen\Roles.class
