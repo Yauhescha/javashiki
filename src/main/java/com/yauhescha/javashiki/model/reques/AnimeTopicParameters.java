@@ -1,4 +1,4 @@
-package com.yauhescha.javashiki.api;
+package com.yauhescha.javashiki.model.reques;
 
 import com.yauhescha.javashiki.constant.TopicKind;
 import lombok.Builder;
