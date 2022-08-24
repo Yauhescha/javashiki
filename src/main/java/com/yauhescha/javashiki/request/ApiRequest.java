@@ -3,6 +3,7 @@ package com.yauhescha.javashiki.request;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.yauhescha.javashiki.constant.ShikiInfo;
 import com.yauhescha.javashiki.util.Utils;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
@@ -16,23 +17,54 @@ public class ApiRequest<T> {
     private final AuthShikimori authShikimori;
     protected final Class<T> responseType;
 
-    public T execute(String url, Map<String, Object> params) {
-        HttpRequest httpRequest = buildGetHttpRequest(URL_API_V1 + url, params);
+    public T execute(@NonNull RequestType requestType,
+                     @NonNull String url) {
+        return execute(requestType, url, null);
+    }
+
+    public T execute(@NonNull RequestType requestType,
+                     @NonNull String url,
+                     @NonNull Map<String, Object> params) {
+        HttpRequest httpRequest = buildHttpRequest(requestType, URL_API_V1 + url, params);
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
 
-    public T execute(String url) {
-        HttpRequest httpRequest = buildGetHttpRequest(URL_API_V1 + url, null);
-        return Utils.fromJson(executeJSON(httpRequest), responseType);
+    private HttpRequest buildHttpRequest(RequestType requestType,
+                                         String url,
+                                         Map<String, Object> params) {
+        HttpRequest request;
+        if (RequestType.POST.equals(requestType)) {
+            request = buildPostRequest(url, params);
+        } else {
+            request = buildGetRequest(url, params);
+        }
+
+        return addAuthorizationHeaders(request);
     }
 
-    private HttpRequest buildGetHttpRequest(String url, Map<String, Object> params) {
+    private HttpRequest buildGetRequest(String url,
+                                        Map<String, Object> params) {
         HttpRequest request;
         if (params == null) {
             request = HttpRequest.get(url);
         } else {
             request = HttpRequest.get(url, true, getParams(params));
         }
+        return request;
+    }
+
+    private HttpRequest buildPostRequest(String url,
+                                         Map<String, Object> params) {
+        HttpRequest request;
+        if (params == null) {
+            request = HttpRequest.post(url);
+        } else {
+            request = HttpRequest.post(url, true, getParams(params));
+        }
+        return request;
+    }
+
+    private HttpRequest addAuthorizationHeaders(HttpRequest request) {
         return request
                 .userAgent(getUserAgentForHeader())
                 .authorization(getAuthorizationForHeader());
@@ -54,10 +86,8 @@ public class ApiRequest<T> {
     }
 
     private HttpRequest copyRequest(HttpRequest request) {
-        return HttpRequest
-                .get(request.url())
-                .userAgent(getUserAgentForHeader())
-                .authorization(getAuthorizationForHeader());
+        return addAuthorizationHeaders(HttpRequest
+                .get(request.url()));
     }
 
     private boolean checkCode401(int code) {
@@ -83,7 +113,6 @@ public class ApiRequest<T> {
         }
         return false;
     }
-
 
     private String getAuthorizationForHeader() {
         return "Bearer " + authShikimori.getAccessToken().getAccessToken();
