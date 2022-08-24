@@ -47,7 +47,7 @@ Copy-paste this code to console:
 After that token was saved for one day.
 
 
-If you don't want to download any additional thinks, use AuthShikimori constructor with parameter authorizationCode and put this code directly.
+If you don't want to download any additional things, use AuthShikimori constructor with parameter authorizationCode and put this code directly.
 ```java
 String authorizationCode = "7tzXM2qVJ_E186sswspcH-M4K2C11GFOl8G-ppdxNXY;
 AuthShikimori auth = new AuthShikimori(authorizationCode);
