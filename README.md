@@ -92,7 +92,7 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] POST /api/appears
 
 ### Bans
-* [ ] GET /api/bans
+* [x] GET /api/bans
 
 ### Calendars
 * [ ] GET /api/calendar
