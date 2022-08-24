@@ -1,6 +1,7 @@
 package com.yauhescha.javashiki.request;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import com.yauhescha.javashiki.api.AppearsApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
@@ -29,6 +30,9 @@ public class AuthShikimori {
 
     @Getter
     private AnimeApi animeApi = new AnimeApi(this);
+
+    @Getter
+    private AppearsApi appearsApi = new AppearsApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

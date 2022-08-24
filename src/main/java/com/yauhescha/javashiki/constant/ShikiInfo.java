@@ -35,6 +35,8 @@ public class ShikiInfo {
     public static final String METHOD_ANIMES_EXTERNAL_LINKS = METHOD_ANIMES_GET_ID + "/external_links";
     public static final String METHOD_ANIMES_TOPICS = METHOD_ANIMES_GET_ID + "/topics";
 
+    public static final String METHOD_APPEARS_POST = "/appears";
+
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
 //    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
@@ -58,22 +60,6 @@ public class ShikiInfo {
 //    public static final String METHOD_USERS_HISTORY = METHOD_USERS_GET_ID + "/history";
 //    public static final String METHOD_USERS_BANS = METHOD_USERS_GET_ID + "/bans";
 //
-//    public static final String PARAM_ANIMES_GET_SEARCH = "search";
-//    public static final String PARAM_ANIMES_GET_LIMIT = "limit";
-//    public static final String PARAM_ANIMES_GET_PAGE = "page";
-//    public static final String PARAM_ANIMES_GET_ORDER = "order";
-//    public static final String PARAM_ANIMES_GET_KIND = "kind";
-//    public static final String PARAM_ANIMES_GET_STATUS = "status";
-//    public static final String PARAM_ANIMES_GET_SEASON = "season";
-//    public static final String PARAM_ANIMES_GET_SCORE = "score";
-//    public static final String PARAM_ANIMES_GET_DURATION = "duration";
-//    public static final String PARAM_ANIMES_GET_RATING = "rating";
-//    public static final String PARAM_ANIMES_GET_GENRE = "genre";
-//    public static final String PARAM_ANIMES_GET_STUDIO = "studio";
-//    public static final String PARAM_ANIMES_GET_CENSORED = "censored";
-//    public static final String PARAM_ANIMES_GET_MY_LIST = "mylist";
-//    public static final String PARAM_ANIMES_GET_IDS = "ids";
-//    public static final String PARAM_ANIMES_GET_EXCLUDE_IDS = "exclude_ids";
 //
 //    public static final String PARAM_MANGAS_GET_SEARCH = "search";
 //    public static final String PARAM_MANGAS_GET_LIMIT = "limit";
