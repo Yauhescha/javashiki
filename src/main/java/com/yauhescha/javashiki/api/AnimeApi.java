@@ -12,6 +12,7 @@ import com.yauhescha.javashiki.model.reques.AnimeSearchParameters;
 import com.yauhescha.javashiki.model.reques.AnimeTopicParameters;
 import com.yauhescha.javashiki.request.ApiRequest;
 import com.yauhescha.javashiki.request.AuthShikimori;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ import static com.yauhescha.javashiki.request.RequestType.GET;
 public class AnimeApi {
     private final AuthShikimori auth;
 
-    public Optional<AnimeFull> getAnimeDetail(int animeId, boolean withAllScreenshots) {
+    public Optional<AnimeFull> getAnimeDetail(@NonNull int animeId, boolean withAllScreenshots) {
         AnimeFull anime = new ApiRequest<>(auth, AnimeFull.class)
                 .execute(GET, String.format(METHOD_ANIMES_GET_ID, animeId));
         if (anime == null) {
@@ -49,7 +50,7 @@ public class AnimeApi {
         return Optional.of(anime);
     }
 
-    public List<Screenshot> getScreenshots(int animeId) {
+    public List<Screenshot> getScreenshots(@NonNull int animeId) {
         Screenshot[] screenshots = new ApiRequest<>(auth, Screenshot[].class)
                 .execute(GET, String.format(METHOD_ANIMES_SCREENSHOTS, animeId));
         if (screenshots == null) {
@@ -58,7 +59,7 @@ public class AnimeApi {
         return Arrays.asList(screenshots);
     }
 
-    public List<Roles> getRoles(int animeId, boolean onlyCharacters) {
+    public List<Roles> getRoles(@NonNull int animeId, boolean onlyCharacters) {
         Roles[] roles = new ApiRequest<>(auth, Roles[].class)
                 .execute(GET, String.format(METHOD_ANIMES_ROLES, animeId));
         if (roles == null) {
@@ -73,7 +74,7 @@ public class AnimeApi {
                 .collect(Collectors.toList());
     }
 
-    public List<Anime> getSimilar(int animeId) {
+    public List<Anime> getSimilar(@NonNull int animeId) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
                 .execute(GET, String.format(METHOD_ANIMES_SIMILAR, animeId));
         if (animes == null) {
@@ -82,7 +83,7 @@ public class AnimeApi {
         return Arrays.asList(animes);
     }
 
-    public List<Related> getRelated(int animeId) {
+    public List<Related> getRelated(@NonNull int animeId) {
         Related[] relatedList = new ApiRequest<>(auth, Related[].class)
                 .execute(GET, String.format(METHOD_ANIMES_RELATED, animeId));
         if (relatedList == null) {
@@ -91,7 +92,7 @@ public class AnimeApi {
         return Arrays.asList(relatedList);
     }
 
-    public List<ExternalLink> getExternalLinks(int animeId) {
+    public List<ExternalLink> getExternalLinks(@NonNull int animeId) {
         ExternalLink[] links = new ApiRequest<>(auth, ExternalLink[].class)
                 .execute(GET, String.format(METHOD_ANIMES_EXTERNAL_LINKS, animeId));
         if (links == null) {
@@ -106,7 +107,7 @@ public class AnimeApi {
         return Optional.of(franchise);
     }
 
-    public List<Anime> getAnimes(AnimeSearchParameters parameters) {
+    public List<Anime> getAnimes(@NonNull AnimeSearchParameters parameters) {
         Anime[] animes = new ApiRequest<>(auth, Anime[].class)
                 .execute(GET, METHOD_ANIMES_GET, parameters.getSearchParameters());
         if (animes == null) {
@@ -115,7 +116,7 @@ public class AnimeApi {
         return Arrays.asList(animes);
     }
 
-    public List<Topic> getTopics(int animeId) {
+    public List<Topic> getTopics(@NonNull int animeId) {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
                 .execute(GET, String.format(METHOD_ANIMES_TOPICS, animeId));
         if (topics == null) {
@@ -124,7 +125,7 @@ public class AnimeApi {
         return Arrays.asList(topics);
     }
 
-    public List<Topic> getTopics(int animeId, AnimeTopicParameters parameters) {
+    public List<Topic> getTopics(@NonNull int animeId, AnimeTopicParameters parameters) {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
                 .execute(GET, String.format(METHOD_ANIMES_TOPICS, animeId), parameters.getSearchParameters());
         if (topics == null) {
