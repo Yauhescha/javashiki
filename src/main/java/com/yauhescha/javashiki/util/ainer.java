@@ -6,6 +6,7 @@ import com.yauhescha.javashiki.model.domen.Anime;
 import com.yauhescha.javashiki.model.domen.Topic;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
+import java.util.Arrays;
 import java.util.List;
 
 //TODO remove comment

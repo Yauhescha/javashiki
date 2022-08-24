@@ -24,7 +24,7 @@ public class ApiRequest<T> {
 
     public T execute(@NonNull RequestType requestType,
                      @NonNull String url,
-                     @NonNull Map<String, Object> params) {
+                     Map<String, Object> params) {
         HttpRequest httpRequest = buildHttpRequest(requestType, URL_API_V1 + url, params);
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }

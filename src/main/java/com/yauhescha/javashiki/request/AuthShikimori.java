@@ -1,16 +1,16 @@
 package com.yauhescha.javashiki.request;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import com.yauhescha.javashiki.api.AchievementsApi;
+import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.api.AppearsApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
-import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.DefaultTokenStorage;
 import com.yauhescha.javashiki.util.Utils;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import lombok.Getter;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,6 +33,9 @@ public class AuthShikimori {
 
     @Getter
     private AppearsApi appearsApi = new AppearsApi(this);
+
+    @Getter
+    AchievementsApi achievementsApi = new AchievementsApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);
