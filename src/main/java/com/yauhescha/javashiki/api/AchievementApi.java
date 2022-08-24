@@ -15,7 +15,7 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_ACHIEVEMETS_GET;
 import static com.yauhescha.javashiki.request.RequestType.GET;
 
 @RequiredArgsConstructor
-public class AchievementsApi {
+public class AchievementApi {
     private final AuthShikimori auth;
     private final String REQUEST_PARAMETER = "user_id";
 

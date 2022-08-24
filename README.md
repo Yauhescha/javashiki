@@ -73,7 +73,7 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 
 ### Achievements
 
-* [ ] GET /api/achievements
+* [x] GET /api/achievements
 
 ### Animes
 * [x] GET /api/animes
@@ -89,7 +89,7 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/animes/:id/topics
 
 ### Appear
-* [ ] POST /api/appears
+* [x] POST /api/appears
 
 ### Bans
 * [ ] GET /api/bans

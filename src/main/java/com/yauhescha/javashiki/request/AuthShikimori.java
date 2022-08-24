@@ -1,9 +1,10 @@
 package com.yauhescha.javashiki.request;
 
 import com.github.kevinsawicki.http.HttpRequest;
-import com.yauhescha.javashiki.api.AchievementsApi;
+import com.yauhescha.javashiki.api.AchievementApi;
 import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.api.AppearsApi;
+import com.yauhescha.javashiki.api.BanApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.DefaultTokenStorage;
@@ -22,20 +23,19 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_SECR
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_NAME;
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_REDIRECT_URI;
 
+@Getter
 public class AuthShikimori {
     private static final Scanner scanner = new Scanner(System.in);
 
-    @Getter
     private AccessToken accessToken;
 
-    @Getter
-    private AnimeApi animeApi = new AnimeApi(this);
+    private final AnimeApi animeApi = new AnimeApi(this);
 
-    @Getter
-    private AppearsApi appearsApi = new AppearsApi(this);
+    private final AppearsApi appearsApi = new AppearsApi(this);
 
-    @Getter
-    AchievementsApi achievementsApi = new AchievementsApi(this);
+    private final AchievementApi achievementApi = new AchievementApi(this);
+
+    private final BanApi banApi = new BanApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

@@ -39,6 +39,8 @@ public class ShikiInfo {
 
     public static final String METHOD_ACHIEVEMETS_GET = "/achievements";
 
+    public static final String METHOD_BANS_GET = "/bans";
+
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
 //    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
