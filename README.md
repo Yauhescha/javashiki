@@ -141,7 +141,7 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] POST /api/favorites/:id/reorder
 
 ### Forums
-* [ ] GET /api/forums
+* [x] GET /api/forums
 
 ### Friends
 * [ ] POST /api/friends/:id

@@ -43,6 +43,8 @@ public class ShikiInfo {
 
     public static final String METHOD_CALENDAR_GET = "/calendar";
 
+    public static final String METHOD_FORUMS_GET = "/forums";
+
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
 //    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
