@@ -5,6 +5,7 @@ import com.yauhescha.javashiki.api.AchievementApi;
 import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.api.AppearsApi;
 import com.yauhescha.javashiki.api.BanApi;
+import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.DefaultTokenStorage;
@@ -36,6 +37,8 @@ public class AuthShikimori {
     private final AchievementApi achievementApi = new AchievementApi(this);
 
     private final BanApi banApi = new BanApi(this);
+
+    private final CalendarApi calendarApi = new CalendarApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

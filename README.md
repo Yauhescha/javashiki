@@ -95,7 +95,7 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/bans
 
 ### Calendars
-* [ ] GET /api/calendar
+* [x] GET /api/calendar
 
 ### Characters
 * [ ] GET /api/characters/:id
