@@ -72,7 +72,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ## Implemented methods from Shikimori API
 
 ### Achievements
-
 * [x] GET /api/achievements
 
 ### Animes
@@ -82,10 +81,8 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/animes/:id/similar
 * [x] GET /api/animes/:id/related
 * [x] GET /api/animes/:id/screenshots
-* [x] GET /api/animes/:id/videos DEPRECATED
 * [x] GET /api/animes/:id/franchise
 * [x] GET /api/animes/:id/external_links
-* [x] GET /api/animes/search DEPRECATED
 * [x] GET /api/animes/:id/topics
 
 ### Appear
@@ -96,6 +93,36 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 
 ### Calendars
 * [x] GET /api/calendar
+
+### Forums
+* [x] GET /api/forums
+
+
+
+## NOT Implemented methods from Shikimori API yet
+
+### Genres
+* [ ] GET /api/genres
+
+### Stats
+* [ ] GET /api/stats/active_users
+
+### Studios
+* [ ] GET /api/studios
+
+### User images
+* [ ] POST /api/user_images
+
+### Publishers
+* [ ] GET /api/publishers
+
+### People
+* [ ] GET /api/people/:id
+* [ ] GET /api/people/search
+
+### User rates
+* [ ] DELETE /api/user_rates/:type/cleanup
+* [ ] DELETE /api/user_rates/:type/reset
 
 ### Characters
 * [ ] GET /api/characters/:id
@@ -140,19 +167,9 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] DELETE /api/favorites/:linked_type/:linked_id
 * [ ] POST /api/favorites/:id/reorder
 
-### Forums
-* [x] GET /api/forums
-
 ### Friends
 * [ ] POST /api/friends/:id
-DELETE /api/friends/:id
-
-### Genres
-* [ ] GET /api/genres
-
-### Ignores
-* [ ] POST /api/ignores/:id DEPRECATED
-* [ ] DELETE /api/ignores/:id DEPRECATED
+* [ ] DELETE /api/friends/:id
 
 ### Mangas
 * [ ] GET /api/mangas
@@ -162,7 +179,6 @@ DELETE /api/friends/:id
 * [ ] GET /api/mangas/:id/related
 * [ ] GET /api/mangas/:id/franchise
 * [ ] GET /api/mangas/:id/external_links
-* [ ] GET /api/mangas/search DEPRECATED
 * [ ] GET /api/mangas/:id/topics
 
 ### Messages
@@ -175,13 +191,6 @@ DELETE /api/friends/:id
 * [ ] POST /api/messages/read_all
 * [ ] POST /api/messages/delete_all
 
-### People
-* [ ] GET /api/people/:id
-* [ ] GET /api/people/search
-
-### Publishers
-* [ ] GET /api/publishers
-
 ### Ranobe
 * [ ] GET /api/ranobe
 * [ ] GET /api/ranobe/:id
@@ -192,22 +201,12 @@ DELETE /api/friends/:id
 * [ ] GET /api/ranobe/:id/external_links
 * [ ] GET /api/ranobe/:id/topics
 
-### Stats
-* [ ] GET /api/stats/active_users
-
-### Studios
-* [ ] GET /api/studios
-
 ### Styles
 * [ ] GET /api/styles/:id
 * [ ] POST /api/styles/preview
 * [ ] POST /api/styles
 * [ ] PATCH /api/styles/:id
 * [ ] PUT /api/styles/:id
-
-### Topic ignores
-* [ ] POST /api/topic_ignores DEPRECATED
-* [ ] DELETE /api/topic_ignores/:id DEPRECATED
 
 ### Topics
 * [ ] GET /api/topics
@@ -218,19 +217,6 @@ DELETE /api/friends/:id
 * [ ] PATCH /api/topics/:id
 * [ ] PUT /api/topics/:id
 * [ ] DELETE /api/topics/:id
-
-### User images
-* [ ] POST /api/user_images
-
-### User rates
-* [ ] GET /api/user_rates/:id DEPRECATED
-* [ ] POST /api/user_rates DEPRECATED
-* [ ] PATCH /api/user_rates/:id DEPRECATED
-* [ ] PUT /api/user_rates/:id DEPRECATED
-* [ ] POST /api/user_rates/:id/increment DEPRECATED
-* [ ] DELETE /api/user_rates/:id DEPRECATED
-* [ ] DELETE /api/user_rates/:type/cleanup
-* [ ] DELETE /api/user_rates/:type/reset
 
 ### Users
 * [ ] GET /api/users
