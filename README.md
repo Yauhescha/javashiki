@@ -97,6 +97,9 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Forums
 * [x] GET /api/forums
 
+### Studios
+* [x] GET /api/studios
+
 
 
 ## NOT Implemented methods from Shikimori API yet
@@ -106,9 +109,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 
 ### Stats
 * [ ] GET /api/stats/active_users
-
-### Studios
-* [ ] GET /api/studios
 
 ### User images
 * [ ] POST /api/user_images

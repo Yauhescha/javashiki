@@ -15,7 +15,7 @@
 
     <properties>
         <!--project-->
-        <project.version>1.1.6</project.version>
+        <project.version>1.1.7</project.version>
 
         <java.version>11</java.version>
         <maven-compiler-plugin.source>11</maven-compiler-plugin.source>
