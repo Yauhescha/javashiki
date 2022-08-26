@@ -8,6 +8,7 @@ import com.yauhescha.javashiki.api.BanApi;
 import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.api.ForumApi;
 import com.yauhescha.javashiki.api.GenreApi;
+import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
@@ -48,6 +49,8 @@ public class AuthShikimori {
     private final StudioApi studioApi = new StudioApi(this);
 
     private final GenreApi genreApi = new GenreApi(this);
+
+    private final StatsApi statsApi = new StatsApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

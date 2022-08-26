@@ -49,6 +49,8 @@ public class ShikiInfo {
 
     public static final String METHOD_GENRES_GET = "/genres";
 
+    public static final String METHOD_STATS_ACTIVE_USER_GET = "/stats/active_users";
+
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
 //    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
