@@ -74,6 +74,9 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Achievements
 * [x] GET /api/achievements
 
+### Appear
+* [x] POST /api/appears
+
 ### Animes
 * [x] GET /api/animes
 * [x] GET /api/animes/:id
@@ -85,14 +88,14 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/animes/:id/external_links
 * [x] GET /api/animes/:id/topics
 
-### Appear
-* [x] POST /api/appears
-
 ### Bans
 * [x] GET /api/bans
 
 ### Calendars
 * [x] GET /api/calendar
+
+### Genres
+* [x] GET /api/genres
 
 ### Forums
 * [x] GET /api/forums
@@ -103,9 +106,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 
 
 ## NOT Implemented methods from Shikimori API yet
-
-### Genres
-* [ ] GET /api/genres
 
 ### Stats
 * [ ] GET /api/stats/active_users
