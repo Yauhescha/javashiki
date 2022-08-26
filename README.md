@@ -106,15 +106,15 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Studios
 * [x] GET /api/studios
 
+### Publishers
+* [x] GET /api/publishers
+
 
 
 ## NOT Implemented methods from Shikimori API yet
 
 ### User images
 * [ ] POST /api/user_images
-
-### Publishers
-* [ ] GET /api/publishers
 
 ### People
 * [ ] GET /api/people/:id
