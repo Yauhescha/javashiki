@@ -6,6 +6,7 @@ import com.yauhescha.javashiki.api.AnimeApi;
 import com.yauhescha.javashiki.api.AppearsApi;
 import com.yauhescha.javashiki.api.BanApi;
 import com.yauhescha.javashiki.api.CalendarApi;
+import com.yauhescha.javashiki.api.ConstantApi;
 import com.yauhescha.javashiki.api.ForumApi;
 import com.yauhescha.javashiki.api.GenreApi;
 import com.yauhescha.javashiki.api.PublisherApi;
@@ -54,6 +55,8 @@ public class AuthShikimori {
     private final StatsApi statsApi = new StatsApi(this);
 
     private final PublisherApi publisherApi = new PublisherApi(this);
+
+    private final ConstantApi constantApi = new ConstantApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

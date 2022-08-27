@@ -53,6 +53,14 @@ public class ShikiInfo {
 
     public static final String METHOD_PUBLISHERS_GET = "/publishers";
 
+    public static final String METHOD_CONSTANTS = "/constants";
+    public static final String METHOD_CONSTANTS_ANIME = METHOD_CONSTANTS + "/anime";
+    public static final String METHOD_CONSTANTS_MANGA = METHOD_CONSTANTS + "/manga";
+    public static final String METHOD_CONSTANTS_USER_RATE = METHOD_CONSTANTS + "/user_rate";
+    public static final String METHOD_CONSTANTS_CLUB = METHOD_CONSTANTS + "/club";
+    public static final String METHOD_CONSTANTS_SMILEYS = METHOD_CONSTANTS + "/smileys";
+
+
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
 //    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";

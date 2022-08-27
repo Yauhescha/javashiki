@@ -94,6 +94,13 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Calendars
 * [x] GET /api/calendar
 
+### Constants
+* [x] GET /api/constants/anime
+* [x] GET /api/constants/manga
+* [x] GET /api/constants/user_rate
+* [x] GET /api/constants/club
+* [x] GET /api/constants/smileys
+
 ### Genres
 * [x] GET /api/genres
 
@@ -149,13 +156,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] PATCH /api/comments/:id
 * [ ] PUT /api/comments/:id
 * [ ] DELETE /api/comments/:id
-
-### Constants
-* [ ] GET /api/constants/anime
-* [ ] GET /api/constants/manga
-* [ ] GET /api/constants/user_rate
-* [ ] GET /api/constants/club
-* [ ] GET /api/constants/smileys
 
 ### Dialogs
 * [ ] GET /api/dialogs
