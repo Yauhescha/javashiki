@@ -12,6 +12,7 @@ import com.yauhescha.javashiki.api.GenreApi;
 import com.yauhescha.javashiki.api.PublisherApi;
 import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
+import com.yauhescha.javashiki.api.UserImageApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.DefaultTokenStorage;
@@ -57,6 +58,8 @@ public class AuthShikimori {
     private final PublisherApi publisherApi = new PublisherApi(this);
 
     private final ConstantApi constantApi = new ConstantApi(this);
+
+    private final UserImageApi userImageApi = new UserImageApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);

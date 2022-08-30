@@ -39,6 +39,8 @@ public class ShikiInfo {
 
     public static final String METHOD_ACHIEVEMETS_GET = "/achievements";
 
+    public static final String METHOD_USER_IMAGE_POST = "/user_images";
+
     public static final String METHOD_BANS_GET = "/bans";
 
     public static final String METHOD_CALENDAR_GET = "/calendar";

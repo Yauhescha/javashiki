@@ -7,9 +7,11 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static com.github.kevinsawicki.http.HttpRequest.CONTENT_TYPE_FORM;
 import static com.yauhescha.javashiki.constant.ShikiInfo.URL_API_V1;
 
 @RequiredArgsConstructor
@@ -26,6 +28,13 @@ public class ApiRequest<T> {
                      @NonNull String url,
                      Map<String, Object> params) {
         HttpRequest httpRequest = buildHttpRequest(requestType, URL_API_V1 + url, params);
+        return Utils.fromJson(executeJSON(httpRequest), responseType);
+    }
+
+    public T executePostImage(@NonNull String url,
+                              File file) {
+        HttpRequest httpRequest = buildHttpRequest(RequestType.POST, URL_API_V1 + url, null);
+        httpRequest.part("image", file.getName(), new File(file.getAbsolutePath()));
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
 
@@ -55,11 +64,9 @@ public class ApiRequest<T> {
 
     private HttpRequest buildPostRequest(String url,
                                          Map<String, Object> params) {
-        HttpRequest request;
-        if (params == null) {
-            request = HttpRequest.post(url);
-        } else {
-            request = HttpRequest.post(url, true, getParams(params));
+        HttpRequest request = HttpRequest.post(url);
+        if (params != null) {
+            request = request.contentType(CONTENT_TYPE_FORM).form(params);
         }
         return request;
     }

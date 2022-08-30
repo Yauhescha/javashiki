@@ -1,21 +1,21 @@
 package com.yauhescha.javashiki.util;
 
-import com.yauhescha.javashiki.api.ConstantApi;
-import com.yauhescha.javashiki.model.domen.consant.SmileConstant;
+import com.yauhescha.javashiki.api.UserImageApi;
+import com.yauhescha.javashiki.model.reques.ImageResponse;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
-import java.util.List;
+import java.io.File;
 
 public class ainer {
-    public static void main(String[] args) {
-//        new AuthShikimori().
-        final ConstantApi constantApi = new AuthShikimori().getConstantApi();
+    public static void main(String[] args) throws Exception {
 
-        final List<SmileConstant> smileConstant = constantApi.getSmileConstant();
+        final UserImageApi imageApi = new AuthShikimori().getUserImageApi();
 
-//constant
-//        System.out.println(Arrays.toString(list.toArray()));
-        System.out.println();
+        File file = new File("C:\\Users\\yauhe\\Downloads\\1.jpg");
+
+        final ImageResponse imageResponse = imageApi.postImage(file);
+
+        System.out.println(imageResponse);
 
     }
 }
