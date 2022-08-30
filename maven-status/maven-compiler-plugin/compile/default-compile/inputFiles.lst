@@ -7,6 +7,7 @@ C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\mode
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\api\GenreApi.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\request\AuthShikimori.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\ExternalLink.java
+C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\api\UserImageApi.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\Forum.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\Person.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\constant\ShikiInfo.java
@@ -32,6 +33,7 @@ C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\api\
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\constant\search\SearchOrderRating.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\Calendar.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\ForumImage.java
+C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\reques\ImageResponse.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\util\ainer.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\consant\AnimeMangaConstant.java
 C:\Users\yauhe\IdeaProjects\javashiki\src\main\java\com\yauhescha\javashiki\model\domen\Manga.java

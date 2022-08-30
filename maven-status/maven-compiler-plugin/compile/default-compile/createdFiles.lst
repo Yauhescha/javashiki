@@ -41,6 +41,7 @@ com\yauhescha\javashiki\model\domen\Anime.class
 com\yauhescha\javashiki\model\domen\Studio.class
 com\yauhescha\javashiki\constant\search\SearchOrderKind.class
 com\yauhescha\javashiki\model\domen\ExternalLink.class
+com\yauhescha\javashiki\model\reques\ImageResponse.class
 com\yauhescha\javashiki\model\domen\Comment.class
 com\yauhescha\javashiki\model\domen\User.class
 com\yauhescha\javashiki\model\reques\AnimeTopicParameters$AnimeTopicParametersBuilder.class
@@ -50,6 +51,7 @@ com\yauhescha\javashiki\util\AuthMethodCreator.class
 com\yauhescha\javashiki\api\CalendarApi.class
 com\yauhescha\javashiki\api\ConstantApi.class
 com\yauhescha\javashiki\util\Utils.class
+com\yauhescha\javashiki\api\UserImageApi.class
 com\yauhescha\javashiki\api\AppearsApi.class
 com\yauhescha\javashiki\model\domen\Screenshot.class
 com\yauhescha\javashiki\util\DefaultTokenStorage.class
