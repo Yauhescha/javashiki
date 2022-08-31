@@ -23,7 +23,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Optional;
 import java.util.Scanner;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_ID;
@@ -76,16 +75,13 @@ public class AuthShikimori {
     }
 
     private AccessToken initialAccessToken(String authorizationCode) {
-        AccessToken accessToken;
-        Optional<AccessToken> maybeToken = DefaultTokenStorage.loadToken();
-        if (maybeToken.isEmpty() || maybeToken.get().isRefreshRequired()) {
+        AccessToken accessToken = DefaultTokenStorage.loadToken().get();
+        if (accessToken == null) {
             System.out.println("Need new access token");
             showAuthorizationCode();
             accessToken = getAuthorization(authorizationCode);
-        } else if (maybeToken.get().isRefreshRequired()) {
-            accessToken = refreshToken();
-        } else {
-            accessToken = maybeToken.get();
+        } else if (accessToken.isRefreshRequired()) {
+            accessToken = refreshToken(accessToken.getRefreshToken());
         }
         this.accessToken = accessToken;
         return accessToken;
@@ -117,9 +113,9 @@ public class AuthShikimori {
         }
     }
 
-    public AccessToken refreshToken() {
+    public AccessToken refreshToken(String refreshToken) {
         HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(APPLICATION_CLIENT_ID,
-                APPLICATION_CLIENT_SECRET, APPLICATION_NAME, accessToken.getRefreshToken());
+                APPLICATION_CLIENT_SECRET, APPLICATION_NAME, refreshToken);
         AccessToken accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
         DefaultTokenStorage.saveToken(accessToken);
         this.accessToken = accessToken;

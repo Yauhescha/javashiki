@@ -89,7 +89,7 @@ public class ApiRequest<T> {
         if (checkCode429(code)) {return executeJSON(copyRequest(request));}
 
         if (checkCode401(code)) {
-            authShikimori.refreshToken();
+            authShikimori.refreshToken(authShikimori.getAccessToken().getRefreshToken());
             return executeJSON(request);}
 
         if (code == 404) {
