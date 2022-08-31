@@ -61,6 +61,8 @@ public class AuthShikimori {
 
     private final UserImageApi userImageApi = new UserImageApi(this);
 
+//    private final PeopleApi peopleApi = new PeopleApi(this);
+
     public AuthShikimori() {
         initialAccessToken(null);
     }
@@ -76,10 +78,12 @@ public class AuthShikimori {
     private AccessToken initialAccessToken(String authorizationCode) {
         AccessToken accessToken;
         Optional<AccessToken> maybeToken = DefaultTokenStorage.loadToken();
-        if (maybeToken.isEmpty()) {
+        if (maybeToken.isEmpty() || maybeToken.get().isRefreshRequired()) {
             System.out.println("Need new access token");
             showAuthorizationCode();
             accessToken = getAuthorization(authorizationCode);
+        } else if (maybeToken.get().isRefreshRequired()) {
+            accessToken = refreshToken();
         } else {
             accessToken = maybeToken.get();
         }
@@ -111,6 +115,15 @@ public class AuthShikimori {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    public AccessToken refreshToken() {
+        HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(APPLICATION_CLIENT_ID,
+                APPLICATION_CLIENT_SECRET, APPLICATION_NAME, accessToken.getRefreshToken());
+        AccessToken accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
+        DefaultTokenStorage.saveToken(accessToken);
+        this.accessToken = accessToken;
+        return accessToken;
     }
 
 }
