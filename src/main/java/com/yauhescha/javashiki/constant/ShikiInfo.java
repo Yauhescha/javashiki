@@ -62,6 +62,10 @@ public class ShikiInfo {
     public static final String METHOD_CONSTANTS_CLUB = METHOD_CONSTANTS + "/club";
     public static final String METHOD_CONSTANTS_SMILEYS = METHOD_CONSTANTS + "/smileys";
 
+    public static final String METHOD_PEOPLES_GET = "/people";
+    public static final String METHOD_PEOPLES_GET_ID = METHOD_PEOPLES_GET + "/%s";
+    public static final String METHOD_PEOPLES_SEARCH = METHOD_PEOPLES_GET + "/search";
+
 
 //    public static final String METHOD_MANGAS_GET = "mangas";
 //    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";

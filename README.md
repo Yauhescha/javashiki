@@ -119,13 +119,13 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### User images
 * [x] POST /api/user_images
 
+### People
+* [x] GET /api/people/:id
+* [x] GET /api/people/search
+
 
 
 ## NOT Implemented methods from Shikimori API yet
-
-### People
-* [ ] GET /api/people/:id
-* [ ] GET /api/people/search
 
 ### User rates
 * [ ] DELETE /api/user_rates/:type/cleanup

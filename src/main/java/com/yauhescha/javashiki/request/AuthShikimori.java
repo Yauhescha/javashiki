@@ -9,6 +9,7 @@ import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.api.ConstantApi;
 import com.yauhescha.javashiki.api.ForumApi;
 import com.yauhescha.javashiki.api.GenreApi;
+import com.yauhescha.javashiki.api.PeopleApi;
 import com.yauhescha.javashiki.api.PublisherApi;
 import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
@@ -60,7 +61,7 @@ public class AuthShikimori {
 
     private final UserImageApi userImageApi = new UserImageApi(this);
 
-//    private final PeopleApi peopleApi = new PeopleApi(this);
+    private final PeopleApi peopleApi = new PeopleApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);
