@@ -86,9 +86,11 @@ public class ApiRequest<T> {
         val code = request.code();
         val json = request.body();
         System.out.println("Code: " + code);
-        if (checkCode429(code)) return executeJSON(copyRequest(request));
+        if (checkCode429(code)) {return executeJSON(copyRequest(request));}
 
-        if (checkCode401(code)) return executeJSON(request);
+        if (checkCode401(code)) {
+            authShikimori.refreshToken();
+            return executeJSON(request);}
 
         if (code == 404) {
             return null;

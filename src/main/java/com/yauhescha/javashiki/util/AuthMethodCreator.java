@@ -33,8 +33,8 @@ public class AuthMethodCreator {
     }
 
     public HttpRequest createRefreshTokenRequest(String clientId, String clientSecret,
-                                                 String appName, String token) {
+                                                 String appName, String refreshToken) {
         return HttpRequest.post(URL_TOKEN, true, PARAM_GRANT_TYPE, GRANT_TYPE_REFRESH_TOKEN, PARAM_REFRESH_TOKEN,
-                token, PARAM_CLIENT_SECRET, clientSecret, PARAM_CLIENT_ID, clientId).userAgent(appName);
+                refreshToken, PARAM_CLIENT_SECRET, clientSecret, PARAM_CLIENT_ID, clientId).userAgent(appName);
     }
 }
