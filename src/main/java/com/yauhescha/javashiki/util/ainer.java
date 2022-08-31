@@ -13,7 +13,7 @@ public class ainer {
 
         File file = new File("C:\\Users\\yauhe\\Downloads\\1.jpg");
 
-        final ImageResponse imageResponse = imageApi.postImage(file);
+        final ImageResponse imageResponse = imageApi.postImage(file, "Comment");
 
         System.out.println(imageResponse);
 

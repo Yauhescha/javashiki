@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
@@ -32,9 +33,13 @@ public class ApiRequest<T> {
     }
 
     public T executePostImage(@NonNull String url,
-                              File file) {
+                              @NotNull File file,
+                              String linkedType) {
         HttpRequest httpRequest = buildHttpRequest(RequestType.POST, URL_API_V1 + url, null);
         httpRequest.part("image", file.getName(), new File(file.getAbsolutePath()));
+        if (linkedType != null) {
+            httpRequest.part("linked_type", linkedType);
+        }
         return Utils.fromJson(executeJSON(httpRequest), responseType);
     }
 

@@ -15,7 +15,11 @@ public class UserImageApi {
     private final AuthShikimori auth;
 
     public ImageResponse postImage(@NonNull File image) {
+        return postImage(image, null);
+    }
+
+    public ImageResponse postImage(@NonNull File image, @NonNull String linkedType) {
         return new ApiRequest<>(auth, ImageResponse.class)
-                .executePostImage(METHOD_USER_IMAGE_POST, image);
+                .executePostImage(METHOD_USER_IMAGE_POST, image, linkedType);
     }
 }
