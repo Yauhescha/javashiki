@@ -1,21 +1,23 @@
 package com.yauhescha.javashiki.util;
 
-import com.yauhescha.javashiki.api.UserImageApi;
-import com.yauhescha.javashiki.model.reques.ImageResponse;
+import com.yauhescha.javashiki.api.MangaApi;
+import com.yauhescha.javashiki.model.domen.Topic;
+import com.yauhescha.javashiki.model.reques.MangaTopicParameters;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
-import java.io.File;
+import java.util.List;
 
 public class ainer {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        final UserImageApi imageApi = new AuthShikimori().getUserImageApi();
+        final MangaApi api = new AuthShikimori().getMangaApi();
+        final List<Topic> topics = api.getTopics(1);
+        final List<Topic> topics1 = api.getTopics(1, MangaTopicParameters.builder()
+                .limit(1)
+                .page(2)
+                .build());
 
-        File file = new File("C:\\Users\\yauhe\\Downloads\\1.jpg");
-
-        final ImageResponse imageResponse = imageApi.postImage(file, "Comment");
-
-        System.out.println(imageResponse);
+        System.out.println(api.getExternalLinks(1));
 
     }
 }

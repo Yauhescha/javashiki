@@ -1,11 +1,9 @@
 package com.yauhescha.javashiki.model.reques;
 
-import com.yauhescha.javashiki.constant.search.SearchOrderDuration;
-import com.yauhescha.javashiki.constant.search.SearchAnimeKind;
+import com.yauhescha.javashiki.constant.search.SearchMangaKind;
+import com.yauhescha.javashiki.constant.search.SearchMangaOrder;
 import com.yauhescha.javashiki.constant.search.SearchOrderListStatus;
-import com.yauhescha.javashiki.constant.search.SearchOrderRating;
 import com.yauhescha.javashiki.constant.search.SearchOrderStatus;
-import com.yauhescha.javashiki.constant.search.SearchAnimeOrder;
 import lombok.Builder;
 
 import javax.validation.constraints.Size;
@@ -14,7 +12,7 @@ import java.util.Map;
 
 //TODO change just enums to set
 @Builder
-public class AnimeSearchParameters {
+public class MangaSearchParameters {
 
     @Size(min = 1, max = 100000)
     private Integer page;
@@ -22,9 +20,9 @@ public class AnimeSearchParameters {
     @Size(min = 1, max = 50)
     private Integer limit;
 
-    private SearchAnimeOrder order;
+    private SearchMangaOrder order;
 
-    private SearchAnimeKind kind;
+    private SearchMangaKind kind;
 
     private SearchOrderStatus status;
 
@@ -33,13 +31,9 @@ public class AnimeSearchParameters {
     @Size(min = 1, max = 10)
     private Float score;
 
-    private SearchOrderDuration duration;
-
-    private SearchOrderRating rating;
-
     private String genre;
 
-    private String studio;
+    private String publisher;
 
     private String franchise;
 
@@ -77,17 +71,11 @@ public class AnimeSearchParameters {
         if (score != null) {
             parameters.put("score", score);
         }
-        if (duration != null) {
-            parameters.put("duration", duration);
-        }
-        if (rating != null) {
-            parameters.put("rating", rating);
-        }
         if (genre != null) {
             parameters.put("genre", genre);
         }
-        if (studio != null) {
-            parameters.put("studio", studio);
+        if (publisher != null) {
+            parameters.put("publisher", publisher);
         }
         if (franchise != null) {
             parameters.put("franchise", franchise);

@@ -9,6 +9,8 @@ import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.api.ConstantApi;
 import com.yauhescha.javashiki.api.ForumApi;
 import com.yauhescha.javashiki.api.GenreApi;
+import com.yauhescha.javashiki.api.MangaApi;
+import com.yauhescha.javashiki.api.PeopleApi;
 import com.yauhescha.javashiki.api.PublisherApi;
 import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
@@ -23,7 +25,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Optional;
 import java.util.Scanner;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_ID;
@@ -38,6 +39,8 @@ public class AuthShikimori {
     private AccessToken accessToken;
 
     private final AnimeApi animeApi = new AnimeApi(this);
+
+    private final MangaApi mangaApi = new MangaApi(this);
 
     private final AppearsApi appearsApi = new AppearsApi(this);
 
@@ -61,6 +64,8 @@ public class AuthShikimori {
 
     private final UserImageApi userImageApi = new UserImageApi(this);
 
+    private final PeopleApi peopleApi = new PeopleApi(this);
+
     public AuthShikimori() {
         initialAccessToken(null);
     }
@@ -74,14 +79,13 @@ public class AuthShikimori {
     }
 
     private AccessToken initialAccessToken(String authorizationCode) {
-        AccessToken accessToken;
-        Optional<AccessToken> maybeToken = DefaultTokenStorage.loadToken();
-        if (maybeToken.isEmpty()) {
+        AccessToken accessToken = DefaultTokenStorage.loadToken().get();
+        if (accessToken == null) {
             System.out.println("Need new access token");
             showAuthorizationCode();
             accessToken = getAuthorization(authorizationCode);
-        } else {
-            accessToken = maybeToken.get();
+        } else if (accessToken.isRefreshRequired()) {
+            accessToken = refreshToken(accessToken.getRefreshToken());
         }
         this.accessToken = accessToken;
         return accessToken;
@@ -111,6 +115,15 @@ public class AuthShikimori {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    public AccessToken refreshToken(String refreshToken) {
+        HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(APPLICATION_CLIENT_ID,
+                APPLICATION_CLIENT_SECRET, APPLICATION_NAME, refreshToken);
+        AccessToken accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
+        DefaultTokenStorage.saveToken(accessToken);
+        this.accessToken = accessToken;
+        return accessToken;
     }
 
 }

@@ -23,7 +23,7 @@ public class AccessToken {
     private long createdAt;
 
     public boolean isRefreshRequired() {
-        return (createdAt * expiresIn) * 1000 < System.currentTimeMillis();
+        return (createdAt + expiresIn) * 1000 < System.currentTimeMillis();
     }
 
     public boolean isLoaded() {

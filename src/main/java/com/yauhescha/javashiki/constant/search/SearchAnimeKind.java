@@ -1,6 +1,6 @@
 package com.yauhescha.javashiki.constant.search;
 
-public enum SearchOrderKind {
+public enum SearchAnimeKind {
     TV("tv"),
     MOVIE("movie"),
     OVA("ova"),
@@ -13,7 +13,7 @@ public enum SearchOrderKind {
 
     private final String name;
 
-    SearchOrderKind(String name) {
+    SearchAnimeKind(String name) {
         this.name = name;
     }
 

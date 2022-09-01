@@ -1,21 +1,20 @@
 package com.yauhescha.javashiki.constant.search;
 
-public enum SearchOrderType {
+public enum SearchMangaOrder {
     ID("id"),
     RANKED("ranked"),
     KIND("kind"),
     POPULARITY("popularity"),
     NAME("name"),
     AIRED_ON("aired_on"),
-    EPISODES("episodes"),
+    VOLUMES("volumes"),
+    CHAPTERS("chapters"),
     STATUS("status"),
-    RANDOM("random"),
-    RANKED_RANDOM("ranked_random"),
-    RANKED_SHIKI("ranked_shiki");
+    RANDOM("random");
 
     private final String name;
 
-    SearchOrderType(String name) {
+    SearchMangaOrder(String name) {
         this.name = name;
     }
 
