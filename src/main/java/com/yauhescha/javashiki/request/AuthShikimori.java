@@ -9,6 +9,7 @@ import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.api.ConstantApi;
 import com.yauhescha.javashiki.api.ForumApi;
 import com.yauhescha.javashiki.api.GenreApi;
+import com.yauhescha.javashiki.api.MangaApi;
 import com.yauhescha.javashiki.api.PeopleApi;
 import com.yauhescha.javashiki.api.PublisherApi;
 import com.yauhescha.javashiki.api.StatsApi;
@@ -38,6 +39,8 @@ public class AuthShikimori {
     private AccessToken accessToken;
 
     private final AnimeApi animeApi = new AnimeApi(this);
+
+    private final MangaApi mangaApi = new MangaApi(this);
 
     private final AppearsApi appearsApi = new AppearsApi(this);
 

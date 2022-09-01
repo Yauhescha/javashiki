@@ -123,6 +123,16 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/people/:id
 * [x] GET /api/people/search
 
+### Mangas
+* [x] GET /api/mangas
+* [x] GET /api/mangas/:id
+* [x] GET /api/mangas/:id/roles
+* [x] GET /api/mangas/:id/similar
+* [x] GET /api/mangas/:id/related
+* [x] GET /api/mangas/:id/franchise
+* [x] GET /api/mangas/:id/external_links
+* [x] GET /api/mangas/:id/topics
+
 
 
 ## NOT Implemented methods from Shikimori API yet
@@ -170,16 +180,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Friends
 * [ ] POST /api/friends/:id
 * [ ] DELETE /api/friends/:id
-
-### Mangas
-* [ ] GET /api/mangas
-* [ ] GET /api/mangas/:id
-* [ ] GET /api/mangas/:id/roles
-* [ ] GET /api/mangas/:id/similar
-* [ ] GET /api/mangas/:id/related
-* [ ] GET /api/mangas/:id/franchise
-* [ ] GET /api/mangas/:id/external_links
-* [ ] GET /api/mangas/:id/topics
 
 ### Messages
 * [ ] GET /api/messages/:id

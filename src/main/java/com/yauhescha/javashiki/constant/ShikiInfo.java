@@ -67,14 +67,15 @@ public class ShikiInfo {
     public static final String METHOD_PEOPLES_SEARCH = METHOD_PEOPLES_GET + "/search";
 
 
-//    public static final String METHOD_MANGAS_GET = "mangas";
-//    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
-//    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
-//    public static final String METHOD_MANGAS_ROLES = METHOD_MANGAS_GET_ID + "/roles";
-//    public static final String METHOD_MANGAS_RELATED = METHOD_MANGAS_GET_ID + "/related";
-//    public static final String METHOD_MANGAS_FRANCHISE = METHOD_MANGAS_GET_ID + "/franchise";
-//    public static final String METHOD_MANGAS_EXTERNAL_LINKS = METHOD_MANGAS_GET_ID + "/external_links";
-//
+    public static final String METHOD_MANGAS_GET = "/mangas";
+    public static final String METHOD_MANGAS_GET_ID = METHOD_MANGAS_GET + "/%s";
+    public static final String METHOD_MANGAS_ROLES = METHOD_MANGAS_GET_ID + "/roles";
+    public static final String METHOD_MANGAS_SIMILAR = METHOD_MANGAS_GET_ID + "/similar";
+    public static final String METHOD_MANGAS_RELATED = METHOD_MANGAS_GET_ID + "/related";
+    public static final String METHOD_MANGAS_FRANCHISE = METHOD_MANGAS_GET_ID + "/franchise";
+    public static final String METHOD_MANGAS_EXTERNAL_LINKS = METHOD_MANGAS_GET_ID + "/external_links";
+    public static final String METHOD_MANGAS_TOPICS = METHOD_MANGAS_GET_ID + "/topics";
+
 //    public static final String METHOD_USERS_GET = "users";
 //    public static final String METHOD_USERS_GET_ID = METHOD_USERS_GET + "/%s";
 //    public static final String METHOD_USERS_INFO = METHOD_USERS_GET_ID + "/info";
