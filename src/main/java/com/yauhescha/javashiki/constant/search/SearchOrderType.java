@@ -9,9 +9,7 @@ public enum SearchOrderType {
     AIRED_ON("aired_on"),
     EPISODES("episodes"),
     STATUS("status"),
-    RANDOM("random"),
-    RANKED_RANDOM("ranked_random"),
-    RANKED_SHIKI("ranked_shiki");
+    RANDOM("random");
 
     private final String name;
 
