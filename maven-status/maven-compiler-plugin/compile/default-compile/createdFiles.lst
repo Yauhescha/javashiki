@@ -21,7 +21,6 @@ com\yauhescha\javashiki\constant\search\SearchOrderRating.class
 com\yauhescha\javashiki\model\domen\Topic.class
 com\yauhescha\javashiki\request\ApiRequest.class
 com\yauhescha\javashiki\constant\search\SearchOrderStatus.class
-com\yauhescha\javashiki\constant\search\SearchOrderType.class
 com\yauhescha\javashiki\model\domen\Publisher.class
 com\yauhescha\javashiki\model\auth\AccessToken.class
 com\yauhescha\javashiki\model\domen\AnimeFull.class
@@ -39,7 +38,6 @@ com\yauhescha\javashiki\model\domen\Forum.class
 com\yauhescha\javashiki\model\reques\AnimeSearchParameters.class
 com\yauhescha\javashiki\model\domen\Anime.class
 com\yauhescha\javashiki\model\domen\Studio.class
-com\yauhescha\javashiki\constant\search\SearchOrderKind.class
 com\yauhescha\javashiki\model\domen\ExternalLink.class
 com\yauhescha\javashiki\model\reques\ImageResponse.class
 com\yauhescha\javashiki\model\domen\Comment.class
