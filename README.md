@@ -8,7 +8,7 @@ To use this library youu need to add current repository to your project (example
   <dependency>
     <groupId>com.yauhescha</groupId>
     <artifactId>javashiki</artifactId>
-    <version>1.1.0</version>
+    <version>1.5.0</version>
   </dependency>
 </dependencies>
 ```
