@@ -2,6 +2,7 @@ package com.yauhescha.javashiki.api;
 
 import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
+import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.request.ApiRequest;
 import com.yauhescha.javashiki.request.AuthShikimori;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.Optional;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_INFO;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_WHOAMI;
 import static com.yauhescha.javashiki.request.RequestType.GET;
 
 @RequiredArgsConstructor
@@ -26,10 +29,10 @@ public class UserApi {
 
     public List<User> getUsers(Integer page, Integer limit) {
         Map<String, Object> params = new HashMap<>();
-        if(page!=null){
+        if (page != null) {
             params.put("page", page);
         }
-        if(limit!=null){
+        if (limit != null) {
             params.put("limit", limit);
         }
         User[] array = new ApiRequest<>(auth, User[].class)
@@ -42,8 +45,19 @@ public class UserApi {
     }
 
     public Optional<UserFull> findUserById(int id) {
-        UserFull array = new ApiRequest<>(auth, UserFull.class)
+        UserFull entity = new ApiRequest<>(auth, UserFull.class)
                 .execute(GET, String.format(METHOD_USERS_GET_ID, id));
-        return Optional.of(array);
+        return Optional.of(entity);
+    }
+
+    public Optional<UserInfo> findUserInfo(int id) {
+        UserInfo entity = new ApiRequest<>(auth, UserInfo.class)
+                .execute(GET, String.format(METHOD_USERS_INFO, id));
+        return Optional.of(entity);
+    }
+
+    public UserInfo whoIAm() {
+        return new ApiRequest<>(auth, UserInfo.class)
+                .execute(GET, METHOD_USERS_WHOAMI);
     }
 }
