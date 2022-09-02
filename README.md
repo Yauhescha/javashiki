@@ -94,6 +94,10 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### Calendars
 * [x] GET /api/calendar
 
+### Characters
+* [x] GET /api/characters/:id
+* [x] GET /api/characters/search
+
 ### Constants
 * [x] GET /api/constants/anime
 * [x] GET /api/constants/manga
@@ -140,10 +144,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 ### User rates
 * [ ] DELETE /api/user_rates/:type/cleanup
 * [ ] DELETE /api/user_rates/:type/reset
-
-### Characters
-* [ ] GET /api/characters/:id
-* [ ] GET /api/characters/search
 
 ### Clubs
 * [ ] GET /api/clubs
