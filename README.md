@@ -8,7 +8,7 @@ To use this library youu need to add current repository to your project (example
   <dependency>
     <groupId>com.yauhescha</groupId>
     <artifactId>javashiki</artifactId>
-    <version>1.5.0</version>
+    <version>1.7.0</version>
   </dependency>
 </dependencies>
 ```
@@ -137,6 +137,22 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [x] GET /api/mangas/:id/external_links
 * [x] GET /api/mangas/:id/topics
 
+### Users
+* [x] GET /api/users
+* [x] GET /api/users/:id
+* [ ] GET /api/users/:id/info
+* [ ] GET /api/users/whoami
+* [ ] GET /api/users/sign_out
+* [ ] GET /api/users/:id/friends
+* [ ] GET /api/users/:id/clubs
+* [ ] GET /api/users/:id/anime_rates
+* [ ] GET /api/users/:id/manga_rates
+* [ ] GET /api/users/:id/favourites
+* [ ] GET /api/users/:id/messages
+* [ ] GET /api/users/:id/unread_messages
+* [ ] GET /api/users/:id/history
+* [ ] GET /api/users/:id/bans
+
 
 
 ## NOT Implemented methods from Shikimori API yet
@@ -217,22 +233,6 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] PATCH /api/topics/:id
 * [ ] PUT /api/topics/:id
 * [ ] DELETE /api/topics/:id
-
-### Users
-* [ ] GET /api/users
-* [ ] GET /api/users/:id
-* [ ] GET /api/users/:id/info
-* [ ] GET /api/users/whoami
-* [ ] GET /api/users/sign_out
-* [ ] GET /api/users/:id/friends
-* [ ] GET /api/users/:id/clubs
-* [ ] GET /api/users/:id/anime_rates
-* [ ] GET /api/users/:id/manga_rates
-* [ ] GET /api/users/:id/favourites
-* [ ] GET /api/users/:id/messages
-* [ ] GET /api/users/:id/unread_messages
-* [ ] GET /api/users/:id/history
-* [ ] GET /api/users/:id/bans
 
 ### Videos
 * [ ] GET /api/animes/:anime_id/videos

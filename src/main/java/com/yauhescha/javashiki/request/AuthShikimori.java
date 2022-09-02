@@ -15,6 +15,7 @@ import com.yauhescha.javashiki.api.PeopleApi;
 import com.yauhescha.javashiki.api.PublisherApi;
 import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
+import com.yauhescha.javashiki.api.UserApi;
 import com.yauhescha.javashiki.api.UserImageApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
@@ -40,34 +41,21 @@ public class AuthShikimori {
     private AccessToken accessToken;
 
     private final AnimeApi animeApi = new AnimeApi(this);
-
     private final MangaApi mangaApi = new MangaApi(this);
-
     private final AppearsApi appearsApi = new AppearsApi(this);
-
     private final AchievementApi achievementApi = new AchievementApi(this);
-
     private final BanApi banApi = new BanApi(this);
-
     private final CalendarApi calendarApi = new CalendarApi(this);
-
     private final ForumApi forumApi = new ForumApi(this);
-
     private final StudioApi studioApi = new StudioApi(this);
-
     private final GenreApi genreApi = new GenreApi(this);
-
     private final StatsApi statsApi = new StatsApi(this);
-
     private final PublisherApi publisherApi = new PublisherApi(this);
-
     private final ConstantApi constantApi = new ConstantApi(this);
-
     private final UserImageApi userImageApi = new UserImageApi(this);
-
     private final PeopleApi peopleApi = new PeopleApi(this);
-
     private final CharacterApi characterApi = new CharacterApi(this);
+    private final UserApi userApi = new UserApi(this);
 
     public AuthShikimori() {
         initialAccessToken(null);
