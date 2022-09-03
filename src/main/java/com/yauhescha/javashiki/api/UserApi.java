@@ -3,6 +3,7 @@ package com.yauhescha.javashiki.api;
 import com.yauhescha.javashiki.model.domen.Ban;
 import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.Club;
+import com.yauhescha.javashiki.model.domen.user.Favourity;
 import com.yauhescha.javashiki.model.domen.user.History;
 import com.yauhescha.javashiki.model.domen.user.UnreadMessages;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_BANS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_CLUBS;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_FAVOURITES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_HISTORY;
@@ -103,5 +105,10 @@ public class UserApi {
             return new ArrayList<>();
         }
         return List.of(array);
+    }
+
+    public Favourity getFavourities(int userId) {
+        return new ApiRequest<>(auth, Favourity.class)
+                .execute(GET, String.format(METHOD_USERS_FAVOURITES, userId));
     }
 }
