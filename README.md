@@ -149,8 +149,8 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] GET /api/users/:id/manga_rates
 * [x] GET /api/users/:id/favourites
 * [ ] GET /api/users/:id/messages
-* [ ] GET /api/users/:id/unread_messages
-* [ ] GET /api/users/:id/history
+* [x] GET /api/users/:id/unread_messages
+* [x] GET /api/users/:id/history
 * [x] GET /api/users/:id/bans
 
 
