@@ -3,6 +3,7 @@ package com.yauhescha.javashiki.api;
 import com.yauhescha.javashiki.model.domen.Ban;
 import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.Club;
+import com.yauhescha.javashiki.model.domen.user.History;
 import com.yauhescha.javashiki.model.domen.user.UnreadMessages;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
@@ -20,6 +21,7 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_BANS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_CLUBS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_HISTORY;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_INFO;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_UNREAD_MESSAGES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_WHOAMI;
@@ -86,6 +88,16 @@ public class UserApi {
     public List<Club> getClubs(int userId) {
         Club[] array = new ApiRequest<>(auth, Club[].class)
                 .execute(GET, String.format(METHOD_USERS_CLUBS, userId));
+        if (array == null) {
+            //TODO made all return empty list.of
+            return new ArrayList<>();
+        }
+        return List.of(array);
+    }
+
+    public List<History> getHistories(int userId) {
+        History[] array = new ApiRequest<>(auth, History[].class)
+                .execute(GET, String.format(METHOD_USERS_HISTORY, userId));
         if (array == null) {
             //TODO made all return empty list.of
             return new ArrayList<>();
