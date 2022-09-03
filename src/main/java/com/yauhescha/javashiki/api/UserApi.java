@@ -2,6 +2,7 @@ package com.yauhescha.javashiki.api;
 
 import com.yauhescha.javashiki.model.domen.Ban;
 import com.yauhescha.javashiki.model.domen.User;
+import com.yauhescha.javashiki.model.domen.user.UnreadMessages;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.request.ApiRequest;
@@ -18,6 +19,7 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_BANS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_INFO;
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_UNREAD_MESSAGES;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_WHOAMI;
 import static com.yauhescha.javashiki.request.RequestType.GET;
 
@@ -55,6 +57,12 @@ public class UserApi {
     public Optional<UserInfo> findUserInfo(int id) {
         UserInfo entity = new ApiRequest<>(auth, UserInfo.class)
                 .execute(GET, String.format(METHOD_USERS_INFO, id));
+        return Optional.of(entity);
+    }
+
+    public Optional<UnreadMessages> findUnreadMessages(int id) {
+        UnreadMessages entity = new ApiRequest<>(auth, UnreadMessages.class)
+                .execute(GET, String.format(METHOD_USERS_UNREAD_MESSAGES, id));
         return Optional.of(entity);
     }
 
