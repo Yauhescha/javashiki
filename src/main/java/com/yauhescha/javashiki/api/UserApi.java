@@ -1,5 +1,6 @@
 package com.yauhescha.javashiki.api;
 
+import com.yauhescha.javashiki.model.domen.Ban;
 import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_BANS;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
 import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_INFO;
@@ -59,5 +61,15 @@ public class UserApi {
     public UserInfo whoIAm() {
         return new ApiRequest<>(auth, UserInfo.class)
                 .execute(GET, METHOD_USERS_WHOAMI);
+    }
+
+    public List<Ban> getBans(int userId) {
+        Ban[] array = new ApiRequest<>(auth, Ban[].class)
+                .execute(GET, String.format(METHOD_USERS_BANS, userId));
+        if (array == null) {
+            //TODO made all return empty list.of
+            return new ArrayList<>();
+        }
+        return List.of(array);
     }
 }
