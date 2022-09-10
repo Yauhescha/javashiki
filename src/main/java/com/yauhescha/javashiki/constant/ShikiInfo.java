@@ -80,18 +80,18 @@ public class ShikiInfo {
     public static final String METHOD_MANGAS_EXTERNAL_LINKS = METHOD_MANGAS_GET_ID + "/external_links";
     public static final String METHOD_MANGAS_TOPICS = METHOD_MANGAS_GET_ID + "/topics";
 
-//    public static final String METHOD_USERS_GET = "users";
-//    public static final String METHOD_USERS_GET_ID = METHOD_USERS_GET + "/%s";
-//    public static final String METHOD_USERS_INFO = METHOD_USERS_GET_ID + "/info";
-//    public static final String METHOD_USERS_WHOAMI = METHOD_USERS_GET + "/whoami";
-//    public static final String METHOD_USERS_SIGN_OUT = METHOD_USERS_GET + "/sign_out";
-//    public static final String METHOD_USERS_FRIENDS = METHOD_USERS_GET_ID + "/friends";
-//    public static final String METHOD_USERS_CLUBS = METHOD_USERS_GET_ID + "/clubs";
-//    public static final String METHOD_USERS_ANIME_RATES = METHOD_USERS_GET_ID + "/anime_rates";
-//    public static final String METHOD_USERS_MANGA_RATES = METHOD_USERS_GET_ID + "/manga_rates";
-//    public static final String METHOD_USERS_FAVOURITES = METHOD_USERS_GET_ID + "/favourites";
-//    public static final String METHOD_USERS_MESSAGES = METHOD_USERS_GET_ID + "/messages";
-//    public static final String METHOD_USERS_UNREAD_MESSAGES = METHOD_USERS_GET_ID + "/unread_messages";
-//    public static final String METHOD_USERS_HISTORY = METHOD_USERS_GET_ID + "/history";
-//    public static final String METHOD_USERS_BANS = METHOD_USERS_GET_ID + "/bans";
+    public static final String METHOD_USERS_GET = "/users";
+    public static final String METHOD_USERS_GET_ID = METHOD_USERS_GET + "/%s";
+    public static final String METHOD_USERS_INFO = METHOD_USERS_GET_ID + "/info";
+    public static final String METHOD_USERS_WHOAMI = METHOD_USERS_GET + "/whoami";
+    public static final String METHOD_USERS_SIGN_OUT = METHOD_USERS_GET + "/sign_out";
+    public static final String METHOD_USERS_FRIENDS = METHOD_USERS_GET_ID + "/friends";
+    public static final String METHOD_USERS_CLUBS = METHOD_USERS_GET_ID + "/clubs";
+    public static final String METHOD_USERS_ANIME_RATES = METHOD_USERS_GET_ID + "/anime_rates";
+    public static final String METHOD_USERS_MANGA_RATES = METHOD_USERS_GET_ID + "/manga_rates";
+    public static final String METHOD_USERS_FAVOURITES = METHOD_USERS_GET_ID + "/favourites";
+    public static final String METHOD_USERS_MESSAGES = METHOD_USERS_GET_ID + "/messages";
+    public static final String METHOD_USERS_UNREAD_MESSAGES = METHOD_USERS_GET_ID + "/unread_messages";
+    public static final String METHOD_USERS_HISTORY = METHOD_USERS_GET_ID + "/history";
+    public static final String METHOD_USERS_BANS = METHOD_USERS_GET_ID + "/bans";
 }
