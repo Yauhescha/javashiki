@@ -2,13 +2,13 @@
 Implementation shikimori api (https://shikimori.one/api/doc) for Java.
 
 ## Dependency
-To use this library youu need to add current repository to your project (example in maven):
+To use this library you need to add current repository to your project (example in maven):
 ```xml
 <dependencies>
   <dependency>
     <groupId>com.yauhescha</groupId>
     <artifactId>javashiki</artifactId>
-    <version>1.7.0</version>
+    <version>2.0.0</version>
   </dependency>
 </dependencies>
 ```
@@ -28,43 +28,24 @@ Also you need to add library in dependencies:
 </repositories>
 ```
 
-## Important dependency
-If you want to receive access to shikimori api directly without preporation, you have to download chromedriver for selenium (to have opportunity get authorization code) from https://chromedriver.chromium.org/downloads. 
-After downloading put .exe file in rool of your application.
-So after starting application
-```java
-AuthShikimori authShikimori = new AuthShikimori();
-```
-You will be moved to shikimori authorization page, where you must authorize your application so you could receive an authorization token and get authorization code:
-
-![image](https://user-images.githubusercontent.com/68643078/185960862-a74f315d-f07e-4f5e-a4fd-870d00243944.png)
-
-
-Copy-paste this code to console:
-
-![image](https://user-images.githubusercontent.com/68643078/185961002-8ecda222-ca70-4a33-a47d-16a7013002da.png)
-
-After that token was saved for one day.
-
-
-If you don't want to download any additional things, use AuthShikimori constructor with parameter authorizationCode and put this code directly.
-```java
-String authorizationCode = "7tzXM2qVJ_E186sswspcH-M4K2C11GFOl8G-ppdxNXY;
-AuthShikimori auth = new AuthShikimori(authorizationCode);
-```
-
 ## Example
 
 ```java
-AuthShikimori authShikimori = new AuthShikimori();
-AnimeApi animeApi = authShikimori.getAnimeApi();
+AuthShikimori auth = new AuthShikimori(applicationName, applicationClientId, applicationClientSecret, applicationRedirectUri);
+// or = new AuthShikimori(); to use Api Test application
+String linkToAuthorizationCode = auth.getUrlToAuthorizationCode(); // use this to get authorization code
+auth.authorize(scanner.nextLine());
 
+UserInfo userInfo = auth.getUserApi().whoIAm();
+System.out.printf(userInfo.toString());
+
+
+AnimeApi animeApi = auth.getAnimeApi();
 AnimeSearchParameters parameters = AnimeSearchParameters
         .builder()
         .limit(5)
         .search("naruto")
         .build();
-
 List<Anime> animes = animeApi.getAnimes(parameters);
 animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName() + "' has '" + anime.getEpisodes() + "' episodes"));
 ```

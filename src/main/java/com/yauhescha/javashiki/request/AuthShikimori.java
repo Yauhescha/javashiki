@@ -19,102 +19,66 @@ import com.yauhescha.javashiki.api.UserApi;
 import com.yauhescha.javashiki.api.UserImageApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
-import com.yauhescha.javashiki.util.DefaultTokenStorage;
 import com.yauhescha.javashiki.util.Utils;
 import lombok.Getter;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Scanner;
-
-import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_ID;
-import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_CLIENT_SECRET;
-import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_NAME;
-import static com.yauhescha.javashiki.constant.ShikiInfo.APPLICATION_REDIRECT_URI;
 
 @Getter
 public class AuthShikimori {
-    private static final Scanner scanner = new Scanner(System.in);
-
-    private AccessToken accessToken;
-
     private final AnimeApi animeApi = new AnimeApi(this);
-    private final MangaApi mangaApi = new MangaApi(this);
     private final AppearsApi appearsApi = new AppearsApi(this);
     private final AchievementApi achievementApi = new AchievementApi(this);
     private final BanApi banApi = new BanApi(this);
     private final CalendarApi calendarApi = new CalendarApi(this);
-    private final ForumApi forumApi = new ForumApi(this);
-    private final StudioApi studioApi = new StudioApi(this);
-    private final GenreApi genreApi = new GenreApi(this);
-    private final StatsApi statsApi = new StatsApi(this);
-    private final PublisherApi publisherApi = new PublisherApi(this);
-    private final ConstantApi constantApi = new ConstantApi(this);
-    private final UserImageApi userImageApi = new UserImageApi(this);
-    private final PeopleApi peopleApi = new PeopleApi(this);
     private final CharacterApi characterApi = new CharacterApi(this);
+    private final ConstantApi constantApi = new ConstantApi(this);
+    private final ForumApi forumApi = new ForumApi(this);
+    private final GenreApi genreApi = new GenreApi(this);
+    private final MangaApi mangaApi = new MangaApi(this);
+    private final PeopleApi peopleApi = new PeopleApi(this);
+    private final PublisherApi publisherApi = new PublisherApi(this);
+    private final StatsApi statsApi = new StatsApi(this);
+    private final StudioApi studioApi = new StudioApi(this);
     private final UserApi userApi = new UserApi(this);
+    private final UserImageApi userImageApi = new UserImageApi(this);
+
+    private final String applicationName;
+    private final String applicationClientId;
+    private final String applicationClientSecret;
+    private final String applicationRedirectUri;
+
+    private AccessToken accessToken;
 
     public AuthShikimori() {
-        initialAccessToken(null);
+        this.applicationName = "Api Test";
+        this.applicationClientId = "bce7ad35b631293ff006be882496b29171792c8839b5094115268da7a97ca34c";
+        this.applicationClientSecret = "811459eada36b14ff0cf0cc353f8162e72a7d6e6c7930b647a5c587d1beffe68";
+        this.applicationRedirectUri = "urn:ietf:wg:oauth:2.0:oob";
+    }
+    public AuthShikimori(String applicationName,
+                         String applicationClientId,
+                         String applicationClientSecret,
+                         String applicationRedirectUri) {
+        this.applicationName = applicationName;
+        this.applicationClientId = applicationClientId;
+        this.applicationClientSecret = applicationClientSecret;
+        this.applicationRedirectUri = applicationRedirectUri;
     }
 
-    public AuthShikimori(String authorizationCode) {
-        initialAccessToken(authorizationCode);
+    public String getUrlToAuthorizationCode() {
+        return AuthMethodCreator.createAuthorizationLink(applicationClientId,
+                applicationClientSecret, applicationRedirectUri);
     }
 
-    protected AccessToken initialAccessToken() {
-        return initialAccessToken(null);
+    public void authorize(String authorizationCode) {
+        HttpRequest tokenRequest = AuthMethodCreator.createAuthorizationTokenRequest(applicationClientId,
+                applicationClientSecret, applicationRedirectUri, authorizationCode, applicationName);
+        this.accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
     }
 
-    private AccessToken initialAccessToken(String authorizationCode) {
-        AccessToken accessToken = DefaultTokenStorage.loadToken().get();
-        if (accessToken == null) {
-            System.out.println("Need new access token");
-            showAuthorizationCode();
-            accessToken = getAuthorization(authorizationCode);
-        } else if (accessToken.isRefreshRequired()) {
-            accessToken = refreshToken(accessToken.getRefreshToken());
-        }
-        this.accessToken = accessToken;
-        return accessToken;
-    }
-
-    private AccessToken getAuthorization(String code) {
-        if (code == null) {
-            System.out.println("Please write code\n");
-            code = scanner.nextLine();
-        }
-        HttpRequest tokenRequest = AuthMethodCreator.createAuthorizationTokenRequest(APPLICATION_CLIENT_ID,
-                APPLICATION_CLIENT_SECRET, APPLICATION_REDIRECT_URI, code, APPLICATION_NAME);
-        AccessToken accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
-        DefaultTokenStorage.saveToken(accessToken);
-        this.accessToken = accessToken;
-        return accessToken;
-    }
-
-    private void showAuthorizationCode() {
-        try {
-            URI url = AuthMethodCreator.createCodeRequest(APPLICATION_CLIENT_ID,
-                    APPLICATION_CLIENT_SECRET, APPLICATION_REDIRECT_URI).url().toURI();
-            WebDriver driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.get(url.toString());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-    }
-
-    public AccessToken refreshToken(String refreshToken) {
-        HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(APPLICATION_CLIENT_ID,
-                APPLICATION_CLIENT_SECRET, APPLICATION_NAME, refreshToken);
-        AccessToken accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
-        DefaultTokenStorage.saveToken(accessToken);
-        this.accessToken = accessToken;
-        return accessToken;
+    public void refreshToken() {
+        HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(applicationClientId,
+                applicationClientSecret, applicationName, accessToken.getRefreshToken());
+        this.accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
     }
 
 }
