@@ -1,8 +1,10 @@
 package com.yauhescha.javashiki;
 
+import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class TestingClass {
@@ -17,12 +19,20 @@ public class TestingClass {
         AuthShikimori auth = new AuthShikimori();
         String linkToAuthorizationCode = auth.getUrlToAuthorizationCode();
         System.out.println(linkToAuthorizationCode);
+        System.out.println();
+        System.out.println("Input code: ");
         auth.authorize(scanner.nextLine());
         System.out.println();
 
 
-        UserInfo userInfo = auth.getUserApi().whoIAm();
-        System.out.printf(userInfo.toString());
+        List<User> list = auth.getUserApi().getFriends(325803);
+        printList(list);
 
+    }
+
+    private static void printList(List<User> list) {
+        System.out.println("before printing");
+        list.stream().forEach(System.out::println);
+        System.out.println("afterPrinting");
     }
 }

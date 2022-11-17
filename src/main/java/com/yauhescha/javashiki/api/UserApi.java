@@ -18,15 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_BANS;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_CLUBS;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_FAVOURITES;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_GET_ID;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_HISTORY;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_INFO;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_UNREAD_MESSAGES;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_USERS_WHOAMI;
+import static com.yauhescha.javashiki.constant.ShikiInfo.*;
 import static com.yauhescha.javashiki.request.RequestType.GET;
 
 @RequiredArgsConstructor
@@ -110,5 +102,14 @@ public class UserApi {
     public Favourity getFavourities(int userId) {
         return new ApiRequest<>(auth, Favourity.class)
                 .execute(GET, String.format(METHOD_USERS_FAVOURITES, userId));
+    }
+
+    public List<User> getFriends(int userId) {
+        User[] array = new ApiRequest<>(auth, User[].class)
+                .execute(GET, String.format(METHOD_USERS_FRIENDS, userId));
+        if (array == null) {
+            return List.of();
+        }
+        return List.of(array);
     }
 }
