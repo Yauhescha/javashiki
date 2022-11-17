@@ -1,7 +1,9 @@
 package com.yauhescha.javashiki;
 
+import com.yauhescha.javashiki.model.domen.AnimeMangaRate;
 import com.yauhescha.javashiki.model.domen.User;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
+import com.yauhescha.javashiki.model.reques.AnimeMangaRateParameters;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
 import java.util.List;
@@ -25,12 +27,22 @@ public class TestingClass {
         System.out.println();
 
 
-        List<User> list = auth.getUserApi().getFriends(325803);
+        System.out.println("Anime rates");
+        List<AnimeMangaRate> list = auth.getUserApi().getAnimeRates(325803, AnimeMangaRateParameters.builder()
+                .limit(10)
+                .build());
         printList(list);
+
+        System.out.println();
+
+        List<AnimeMangaRate> list2 = auth.getUserApi().getMangaRates(325803, AnimeMangaRateParameters.builder()
+                .limit(10)
+                .build());
+        printList(list2);
 
     }
 
-    private static void printList(List<User> list) {
+    private static void printList(List list) {
         System.out.println("before printing");
         list.stream().forEach(System.out::println);
         System.out.println("afterPrinting");

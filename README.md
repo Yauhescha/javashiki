@@ -8,7 +8,7 @@ To use this library you need to add current repository to your project (example 
   <dependency>
     <groupId>com.yauhescha</groupId>
     <artifactId>javashiki</artifactId>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
   </dependency>
 </dependencies>
 ```
@@ -126,8 +126,8 @@ animes.forEach(anime -> System.out.println("Anime with name '" + anime.getName()
 * [ ] GET /api/users/sign_out
 * [x] GET /api/users/:id/friends
 * [x] GET /api/users/:id/clubs
-* [ ] GET /api/users/:id/anime_rates
-* [ ] GET /api/users/:id/manga_rates
+* [x] GET /api/users/:id/anime_rates
+* [x] GET /api/users/:id/manga_rates
 * [x] GET /api/users/:id/favourites
 * [ ] GET /api/users/:id/messages
 * [x] GET /api/users/:id/unread_messages
