@@ -17,6 +17,7 @@
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/AnimeShort.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/AnimeMangaStatusItem.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Image.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/reques/UserMessageParameters.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/FullStatuses.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/ShikiInfo.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/Activity.java
@@ -53,6 +54,7 @@
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/search/SearchMangaOrder.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/reques/AnimeSearchParameters.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/api/UserImageApi.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/reques/AnimeMangaRateParameters.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/api/BanApi.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Genre.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/User.java
@@ -61,11 +63,13 @@
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Topic.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Video.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/search/SearchKindType.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/MessageType.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Related.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/reques/MangaTopicParameters.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/Favourity.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/FavourityItem.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/MangaFull.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/message/MessageUser.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/AnimeFull.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/ExternalLink.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/History.java
@@ -76,6 +80,7 @@
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/consant/ClubConstant.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/UnreadMessages.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/user/Statuses.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/AnimeMangaRate.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/PeopleRole.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/util/AuthMethodCreator.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Ban.java
@@ -83,11 +88,14 @@
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/search/SearchOrderStatus.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/consant/AnimeMangaConstant.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/api/StudioApi.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/message/Message.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/search/SearchOrderDuration.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/TestingClass.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/request/RequestType.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/MangaForCharacter.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/message/MessageImage.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/constant/search/SearchAnimeOrder.java
+/home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/message/MessageLinked.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/request/ApiRequest.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/model/domen/Node.java
 /home/ubunta/IdeaProjects/javashiki/src/main/java/com/yauhescha/javashiki/api/StatsApi.java

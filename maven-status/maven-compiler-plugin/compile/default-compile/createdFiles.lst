@@ -8,6 +8,7 @@ com/yauhescha/javashiki/model/domen/Anime.class
 com/yauhescha/javashiki/constant/TopicKind.class
 com/yauhescha/javashiki/model/domen/user/UserFull.class
 com/yauhescha/javashiki/constant/search/SearchAnimeOrder.class
+com/yauhescha/javashiki/model/domen/message/MessageUser.class
 com/yauhescha/javashiki/constant/search/SearchOrderListStatus.class
 com/yauhescha/javashiki/model/reques/AnimeTopicParameters.class
 com/yauhescha/javashiki/model/domen/user/FavourityItem.class
@@ -22,8 +23,10 @@ com/yauhescha/javashiki/api/MangaApi.class
 com/yauhescha/javashiki/model/domen/AnimeFull.class
 com/yauhescha/javashiki/constant/search/SearchAnimeKind.class
 com/yauhescha/javashiki/constant/search/SearchOrderRating.class
+com/yauhescha/javashiki/model/reques/UserMessageParameters.class
 com/yauhescha/javashiki/model/reques/ImageResponse.class
 com/yauhescha/javashiki/api/BanApi.class
+com/yauhescha/javashiki/model/domen/message/Message.class
 com/yauhescha/javashiki/model/domen/user/Ratings.class
 com/yauhescha/javashiki/model/domen/AnimeShort.class
 com/yauhescha/javashiki/constant/search/SearchOrderDuration.class
@@ -40,6 +43,7 @@ com/yauhescha/javashiki/api/CalendarApi.class
 com/yauhescha/javashiki/model/domen/user/Club.class
 com/yauhescha/javashiki/model/reques/MangaSearchParameters$MangaSearchParametersBuilder.class
 com/yauhescha/javashiki/model/domen/Node.class
+com/yauhescha/javashiki/model/reques/AnimeMangaRateParameters$AnimeMangaRateParametersBuilder.class
 com/yauhescha/javashiki/model/domen/consant/UserRateConstant.class
 com/yauhescha/javashiki/model/domen/Work.class
 com/yauhescha/javashiki/api/StatsApi.class
@@ -47,10 +51,12 @@ com/yauhescha/javashiki/model/reques/MangaTopicParameters.class
 com/yauhescha/javashiki/model/reques/MangaSearchParameters.class
 com/yauhescha/javashiki/model/domen/Character.class
 com/yauhescha/javashiki/model/domen/ExternalLink.class
+com/yauhescha/javashiki/model/domen/message/MessageLinked.class
 com/yauhescha/javashiki/model/domen/user/FullStatuses.class
 com/yauhescha/javashiki/model/domen/user/AnimeMangaStatusItem.class
 com/yauhescha/javashiki/model/domen/MangaForCharacter.class
 com/yauhescha/javashiki/model/domen/Ban.class
+com/yauhescha/javashiki/model/domen/message/MessageImage.class
 com/yauhescha/javashiki/model/domen/CharacterFull.class
 com/yauhescha/javashiki/api/ForumApi.class
 com/yauhescha/javashiki/model/domen/Screenshot.class
@@ -69,7 +75,9 @@ com/yauhescha/javashiki/model/domen/Publisher.class
 com/yauhescha/javashiki/model/domen/user/Stats.class
 com/yauhescha/javashiki/api/UserApi.class
 com/yauhescha/javashiki/model/domen/AnimeForCharacter.class
+com/yauhescha/javashiki/model/reques/AnimeMangaRateParameters.class
 com/yauhescha/javashiki/model/domen/PeopleRole.class
+com/yauhescha/javashiki/model/domen/AnimeMangaRate.class
 com/yauhescha/javashiki/util/AuthMethodCreator.class
 com/yauhescha/javashiki/model/domen/Studio.class
 com/yauhescha/javashiki/model/reques/AnimeTopicParameters$AnimeTopicParametersBuilder.class
@@ -80,6 +88,7 @@ com/yauhescha/javashiki/api/UserImageApi.class
 com/yauhescha/javashiki/model/auth/AccessToken.class
 com/yauhescha/javashiki/model/domen/user/UnreadMessages.class
 com/yauhescha/javashiki/model/domen/consant/SmileConstant.class
+com/yauhescha/javashiki/model/reques/UserMessageParameters$UserMessageParametersBuilder.class
 com/yauhescha/javashiki/model/domen/Roles.class
 com/yauhescha/javashiki/model/domen/Genre.class
 com/yauhescha/javashiki/model/domen/Topic.class
@@ -91,6 +100,7 @@ com/yauhescha/javashiki/model/domen/Calendar.class
 com/yauhescha/javashiki/model/domen/Person.class
 com/yauhescha/javashiki/api/PublisherApi.class
 com/yauhescha/javashiki/model/domen/Seyu.class
+com/yauhescha/javashiki/constant/MessageType.class
 com/yauhescha/javashiki/TestingClass.class
 com/yauhescha/javashiki/model/domen/user/UserInfo.class
 com/yauhescha/javashiki/model/domen/RatesScoresStat.class
