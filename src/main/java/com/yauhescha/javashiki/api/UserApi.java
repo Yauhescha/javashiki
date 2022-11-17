@@ -3,6 +3,7 @@ package com.yauhescha.javashiki.api;
 import com.yauhescha.javashiki.model.domen.AnimeMangaRate;
 import com.yauhescha.javashiki.model.domen.Ban;
 import com.yauhescha.javashiki.model.domen.User;
+import com.yauhescha.javashiki.model.domen.message.Message;
 import com.yauhescha.javashiki.model.domen.user.Club;
 import com.yauhescha.javashiki.model.domen.user.Favourity;
 import com.yauhescha.javashiki.model.domen.user.History;
@@ -10,6 +11,7 @@ import com.yauhescha.javashiki.model.domen.user.UnreadMessages;
 import com.yauhescha.javashiki.model.domen.user.UserFull;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.model.reques.AnimeMangaRateParameters;
+import com.yauhescha.javashiki.model.reques.UserMessageParameters;
 import com.yauhescha.javashiki.request.ApiRequest;
 import com.yauhescha.javashiki.request.AuthShikimori;
 import lombok.RequiredArgsConstructor;
@@ -127,6 +129,15 @@ public class UserApi {
     public List<AnimeMangaRate> getMangaRates(int userId, AnimeMangaRateParameters parameters) {
         AnimeMangaRate[] array = new ApiRequest<>(auth, AnimeMangaRate[].class)
                 .execute(GET, String.format(METHOD_USERS_MANGA_RATES, userId), parameters.getSearchParameters());
+        if (array == null) {
+            return List.of();
+        }
+        return List.of(array);
+    }
+
+    public List<Message> getMessages(int userId, UserMessageParameters parameters) {
+        Message[] array = new ApiRequest<>(auth, Message[].class)
+                .execute(GET, String.format(METHOD_USERS_MESSAGES, userId), parameters.getSearchParameters());
         if (array == null) {
             return List.of();
         }
