@@ -89,7 +89,7 @@ public class ApiRequest<T> {
         if (checkCode429(code)) {return executeJSON(copyRequest(request));}
 
         if (checkCode401(code)) {
-            authShikimori.refreshToken(authShikimori.getAccessToken().getRefreshToken());
+            authShikimori.refreshToken();
             return executeJSON(request);}
 
         if (code == 404) {
@@ -108,7 +108,7 @@ public class ApiRequest<T> {
         if (code == 401) {
             if (!authShikimori.getAccessToken().isLoaded() || authShikimori.getAccessToken().isRefreshRequired()) {
                 System.out.println("Token expired, trying refresh token...");
-                authShikimori.initialAccessToken();
+                authShikimori.refreshToken();
                 return true;
             }
         }
@@ -133,7 +133,7 @@ public class ApiRequest<T> {
     }
 
     private String getUserAgentForHeader() {
-        return ShikiInfo.APPLICATION_NAME;
+        return authShikimori.getApplicationName();
     }
 
     private Object[] getParams(Map<String, Object> params) {

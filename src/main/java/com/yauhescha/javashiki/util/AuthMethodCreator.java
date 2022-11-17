@@ -18,10 +18,10 @@ import static com.yauhescha.javashiki.constant.ShikiInfo.URL_TOKEN;
 
 @UtilityClass
 public class AuthMethodCreator {
-    public HttpRequest createCodeRequest(String clientId, String clientSecret,
-                                         String redirectUri) {
+    public String createAuthorizationLink(String clientId, String clientSecret,
+                                          String redirectUri) {
         return HttpRequest.get(URL_AUTHORIZE, true, PARAM_CLIENT_ID, clientId, PARAM_CLIENT_SECRET, clientSecret,
-                PARAM_REDIRECT_URI, redirectUri, PARAM_RESPONSE_TYPE, RESPONSE_TYPE_CODE);
+                PARAM_REDIRECT_URI, redirectUri, PARAM_RESPONSE_TYPE, RESPONSE_TYPE_CODE).url().toString();
     }
 
     public HttpRequest createAuthorizationTokenRequest(String clientId, String clientSecret,

@@ -1,10 +1,6 @@
 package com.yauhescha.javashiki.constant;
 
 public class ShikiInfo {
-    public static final String APPLICATION_NAME = "Javashiki";
-    public static final String APPLICATION_CLIENT_ID = "yYGBEgPj6gCWio41cWPoKbTPL2bgFg2gVjBb-EQrUpc";
-    public static final String APPLICATION_CLIENT_SECRET = "NiAm85gyH25wvtdljbBuDC1lkfnYSDOgshBxX-m8Kto";
-    public static final String APPLICATION_REDIRECT_URI = "https://amiaprogrammist.herokuapp.com/shiki";
 
     public static final String URL_SHIKIMORI = "https://shikimori.one";
     public static final String URL_API_V1 = URL_SHIKIMORI + "/api";
