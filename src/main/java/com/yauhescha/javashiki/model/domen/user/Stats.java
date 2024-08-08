@@ -55,6 +55,6 @@ public class Stats {
 
     @SerializedName("activity")
     @Expose
-    private List<Activity> activity = new ArrayList<>();
+    private Activity activity;
 
 }

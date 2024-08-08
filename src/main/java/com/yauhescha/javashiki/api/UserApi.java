@@ -30,16 +30,19 @@ public class UserApi {
     private final AuthShikimori auth;
 
     public List<User> getUsers() {
-        return getUsers(null, null);
+        return getUsers(null, null, null);
     }
 
-    public List<User> getUsers(Integer page, Integer limit) {
+    public List<User> getUsers(Integer page, Integer limit, String search) {
         Map<String, Object> params = new HashMap<>();
         if (page != null) {
             params.put("page", page);
         }
         if (limit != null) {
             params.put("limit", limit);
+        }
+        if (search != null) {
+            params.put("search", search);
         }
         User[] array = new ApiRequest<>(auth, User[].class)
                 .execute(GET, METHOD_USERS_GET, params);

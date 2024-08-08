@@ -53,6 +53,9 @@ public class AuthShikimori {
         this.applicationClientId = "bce7ad35b631293ff006be882496b29171792c8839b5094115268da7a97ca34c";
         this.applicationClientSecret = "811459eada36b14ff0cf0cc353f8162e72a7d6e6c7930b647a5c587d1beffe68";
         this.applicationRedirectUri = "urn:ietf:wg:oauth:2.0:oob";
+
+        accessToken = new AccessToken();
+        accessToken.setAccessToken("LOqfUejS-sngfAmkMWsXoxNe6pCJ7bnVOK073qxliJA");
     }
     public AuthShikimori(String applicationName,
                          String applicationClientId,
@@ -79,6 +82,10 @@ public class AuthShikimori {
         HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(applicationClientId,
                 applicationClientSecret, applicationName, accessToken.getRefreshToken());
         this.accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
+    }
+
+    public void refreshToken(AccessToken accessToken) {
+        this.accessToken = accessToken;
     }
 
 }
