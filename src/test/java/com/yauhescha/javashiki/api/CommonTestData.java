@@ -7,6 +7,7 @@ public class CommonTestData {
     public static final int TEST_USER_ID = 1501051;
     public static final String TEST_USER_USERNAME = "javashiki";
     public static final String TEST_USER_URL = "https://shikimori.one/javashiki";
+
     protected final AuthShikimori authShikimori = new AuthShikimori();
     protected final AnimeApi animeApi = authShikimori.getAnimeApi();
     protected final AppearsApi appearsApi = authShikimori.getAppearsApi();
