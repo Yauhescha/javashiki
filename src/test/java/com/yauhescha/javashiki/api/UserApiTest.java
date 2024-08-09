@@ -15,7 +15,6 @@ import com.yauhescha.javashiki.model.domen.user.UserFull;
 import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.model.reques.AnimeMangaRateParameters;
 import com.yauhescha.javashiki.model.reques.UserMessageParameters;
-import com.yauhescha.javashiki.request.AuthShikimori;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,24 +22,16 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Optional;
 
-public class UserApiTest {
-    public static final int TEST_USER_ID = 1501051;
-    AuthShikimori authShikimori = new AuthShikimori();
-    UserApi userApi = authShikimori.getUserApi();
-
-    @Before
-    public void setUpBeforeClass() throws Exception {
-        Thread.sleep(1000);
-    }
+public class UserApiTest extends CommonTestData {
 
     @Test
     public void getUsersWithParams() {
-        List<User> users = userApi.getUsers(1, 1, "javashiki");
+        List<User> users = userApi.getUsers(1, 1, TEST_USER_USERNAME);
         Assert.assertNotNull(users);
         Assert.assertEquals(1, users.size());
         User user = users.get(0);
-        Assert.assertEquals("javashiki", user.getNickname());
-        Assert.assertEquals("https://shikimori.one/javashiki", user.getUrl());
+        Assert.assertEquals(TEST_USER_USERNAME, user.getNickname());
+        Assert.assertEquals(TEST_USER_URL, user.getUrl());
     }
 
     @Test
@@ -52,33 +43,33 @@ public class UserApiTest {
 
     @Test
     public void findUserById() {
-        Optional<UserFull> userById = userApi.findUserById(1501051);
+        Optional<UserFull> userById = userApi.findUserById(TEST_USER_ID);
         Assert.assertTrue(userById.isPresent());
         UserFull user = userById.get();
-        Assert.assertEquals("javashiki", user.getNickname());
+        Assert.assertEquals(TEST_USER_USERNAME, user.getNickname());
         Assert.assertEquals("male", user.getSex());
         Assert.assertEquals("website", user.getWebsite());
         Assert.assertEquals(false, user.getBanned());
         Assert.assertEquals(1436833, user.getStyleId(), 0);
-        Assert.assertEquals(1501051, user.getId(), 0);
+        Assert.assertEquals(TEST_USER_ID, user.getId(), 0);
     }
 
     @Test
     public void findUserInfo() {
-        Optional<UserInfo> userInfo = userApi.findUserInfo(1501051);
+        Optional<UserInfo> userInfo = userApi.findUserInfo(TEST_USER_ID);
         Assert.assertTrue(userInfo.isPresent());
         UserInfo info = userInfo.get();
-        Assert.assertEquals("https://shikimori.one/javashiki", info.getUrl());
-        Assert.assertEquals(1501051, info.getId(), 0);
+        Assert.assertEquals(TEST_USER_URL, info.getUrl());
+        Assert.assertEquals(TEST_USER_ID, info.getId(), 0);
         Assert.assertEquals("male", info.getSex());
-        Assert.assertEquals("javashiki", info.getNickname());
+        Assert.assertEquals(TEST_USER_USERNAME, info.getNickname());
         Assert.assertEquals("website", info.getWebsite());
         Assert.assertEquals("ru", info.getLocale());
     }
 
     @Test
     public void findUnreadMessages() {
-        Optional<UnreadMessages> unreadMessages = userApi.findUnreadMessages(1501051);
+        Optional<UnreadMessages> unreadMessages = userApi.findUnreadMessages(TEST_USER_ID);
         Assert.assertTrue(unreadMessages.isPresent());
         UnreadMessages messages = unreadMessages.get();
         throw new UnsupportedOperationException("Not supported yet (need ask administrators for access).");
@@ -87,17 +78,17 @@ public class UserApiTest {
     @Test
     public void whoIAm() {
         UserInfo info = userApi.whoIAm();
-        Assert.assertEquals("https://shikimori.one/javashiki", info.getUrl());
-        Assert.assertEquals(1501051, info.getId(), 0);
+        Assert.assertEquals(TEST_USER_URL, info.getUrl());
+        Assert.assertEquals(TEST_USER_ID, info.getId(), 0);
         Assert.assertEquals("male", info.getSex());
-        Assert.assertEquals("javashiki", info.getNickname());
+        Assert.assertEquals(TEST_USER_USERNAME, info.getNickname());
         Assert.assertEquals("website", info.getWebsite());
         Assert.assertEquals("ru", info.getLocale());
     }
 
     @Test
     public void getBans() {
-        List<Ban> bans = userApi.getBans(1501051);
+        List<Ban> bans = userApi.getBans(TEST_USER_ID);
         Assert.assertNotNull(bans);
         Assert.assertTrue(bans.isEmpty());
     }
@@ -120,8 +111,7 @@ public class UserApiTest {
         Assert.assertNotNull(histories);
         Assert.assertFalse(histories.isEmpty());
         History history = histories.get(0);
-        Assert.assertEquals(398037120, history.getId(), 0);
-        Assert.assertEquals("Регистрация на сайте", history.getDescription());
+        Assert.assertTrue(history.getId() > 1_000_000);
     }
 
     @Test

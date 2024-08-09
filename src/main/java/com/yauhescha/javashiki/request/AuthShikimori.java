@@ -22,6 +22,11 @@ import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.Utils;
 import lombok.Getter;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 @Getter
 public class AuthShikimori {
     private final AnimeApi animeApi = new AnimeApi(this);
@@ -53,10 +58,12 @@ public class AuthShikimori {
         this.applicationClientId = "bce7ad35b631293ff006be882496b29171792c8839b5094115268da7a97ca34c";
         this.applicationClientSecret = "811459eada36b14ff0cf0cc353f8162e72a7d6e6c7930b647a5c587d1beffe68";
         this.applicationRedirectUri = "urn:ietf:wg:oauth:2.0:oob";
-
-        accessToken = new AccessToken();
-        accessToken.setAccessToken("LOqfUejS-sngfAmkMWsXoxNe6pCJ7bnVOK073qxliJA");
+        AccessToken token = readTokenIfExist();
+        if (token != null) {
+            this.accessToken = token;
+        }
     }
+
     public AuthShikimori(String applicationName,
                          String applicationClientId,
                          String applicationClientSecret,
@@ -69,23 +76,49 @@ public class AuthShikimori {
 
     public String getUrlToAuthorizationCode() {
         return AuthMethodCreator.createAuthorizationLink(applicationClientId,
-                applicationClientSecret, applicationRedirectUri);
+            applicationClientSecret, applicationRedirectUri);
     }
 
     public void authorize(String authorizationCode) {
         HttpRequest tokenRequest = AuthMethodCreator.createAuthorizationTokenRequest(applicationClientId,
-                applicationClientSecret, applicationRedirectUri, authorizationCode, applicationName);
-        this.accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
+            applicationClientSecret, applicationRedirectUri, authorizationCode, applicationName);
+        String body = tokenRequest.body();
+        saveToken(body);
+        this.accessToken = Utils.fromJson(body, AccessToken.class);
     }
 
     public void refreshToken() {
         HttpRequest tokenRequest = AuthMethodCreator.createRefreshTokenRequest(applicationClientId,
-                applicationClientSecret, applicationName, accessToken.getRefreshToken());
-        this.accessToken = Utils.fromJson(tokenRequest.body(), AccessToken.class);
+            applicationClientSecret, applicationName, accessToken.getRefreshToken());
+        String body = tokenRequest.body();
+        saveToken(body);
+        this.accessToken = Utils.fromJson(body, AccessToken.class);
     }
 
     public void refreshToken(AccessToken accessToken) {
         this.accessToken = accessToken;
     }
 
+    private void saveToken(String text) {
+        try (FileWriter writer = new FileWriter("AccessToken", false)) {
+            writer.write(text);
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public AccessToken readTokenIfExist() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("AccessToken"))) {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            return Utils.fromJson(sb.toString(), AccessToken.class);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 }
