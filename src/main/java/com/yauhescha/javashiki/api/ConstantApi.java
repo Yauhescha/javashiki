@@ -47,7 +47,7 @@ public class ConstantApi {
         SmileConstant[] list = new ApiRequest<>(auth, SmileConstant[].class)
                 .execute(GET, METHOD_CONSTANTS_SMILEYS);
         if (list == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(list);
     }

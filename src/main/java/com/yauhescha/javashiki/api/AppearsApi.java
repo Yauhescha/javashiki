@@ -11,8 +11,9 @@ import static com.yauhescha.javashiki.request.RequestType.POST;
 
 @RequiredArgsConstructor
 public class AppearsApi {
+    private static final String POST_PARAMETER = "ids";
+
     private final AuthShikimori auth;
-    private final String POST_PARAMETER = "ids";
 
     public void postAppears(String... ids) {
         String appearsParamsAsString = String.join(",", ids);

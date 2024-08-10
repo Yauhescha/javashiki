@@ -37,7 +37,7 @@ public class MangaApi {
         Manga[] array = new ApiRequest<>(auth, Manga[].class)
                 .execute(GET, METHOD_MANGAS_GET, parameters.getSearchParameters());
         if (array == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(array);
     }
@@ -52,7 +52,7 @@ public class MangaApi {
         Roles[] roles = new ApiRequest<>(auth, Roles[].class)
                 .execute(GET, String.format(METHOD_MANGAS_ROLES, mangaId));
         if (roles == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(roles);
     }
@@ -61,7 +61,7 @@ public class MangaApi {
         Manga[] array = new ApiRequest<>(auth, Manga[].class)
                 .execute(GET, String.format(METHOD_MANGAS_SIMILAR, mangaId));
         if (array == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(array);
     }
@@ -70,7 +70,7 @@ public class MangaApi {
         Related[] relatedList = new ApiRequest<>(auth, Related[].class)
                 .execute(GET, String.format(METHOD_MANGAS_RELATED, mangaId));
         if (relatedList == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(relatedList);
     }
@@ -85,7 +85,7 @@ public class MangaApi {
         ExternalLink[] links = new ApiRequest<>(auth, ExternalLink[].class)
                 .execute(GET, String.format(METHOD_MANGAS_EXTERNAL_LINKS, mangaId));
         if (links == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(links);
     }
@@ -94,7 +94,7 @@ public class MangaApi {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
                 .execute(GET, String.format(METHOD_MANGAS_TOPICS, animeId));
         if (topics == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(topics);
     }
@@ -103,7 +103,7 @@ public class MangaApi {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
                 .execute(GET, String.format(METHOD_MANGAS_TOPICS, animeId), parameters.getSearchParameters());
         if (topics == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(topics);
     }

@@ -20,7 +20,7 @@ public class GenreApi {
         Genre[] list = new ApiRequest<>(auth, Genre[].class)
                 .execute(GET, METHOD_GENRES_GET);
         if (list == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(list);
     }

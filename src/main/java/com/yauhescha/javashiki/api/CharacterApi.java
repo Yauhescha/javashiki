@@ -28,7 +28,7 @@ public class CharacterApi {
         CharacterFull[] array = new ApiRequest<>(auth, CharacterFull[].class)
                 .execute(GET, METHOD_CHARACTERS_SEARCH, Map.of("search", search));
         if (array == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }

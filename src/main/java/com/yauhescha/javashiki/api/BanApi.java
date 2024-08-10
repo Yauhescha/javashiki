@@ -20,7 +20,7 @@ public class BanApi {
         Ban[] bans = new ApiRequest<>(auth, Ban[].class)
                 .execute(GET, METHOD_BANS_GET);
         if (bans == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(bans);
     }

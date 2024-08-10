@@ -15,14 +15,15 @@ import static com.yauhescha.javashiki.request.RequestType.GET;
 
 @RequiredArgsConstructor
 public class CalendarApi {
+    private static final String SEARCH_PARAMETER = "censored";
+    
     private final AuthShikimori auth;
-    private final String SEARCH_PARAMETER = "censored";
 
     public List<Calendar> getCalendars() {
         Calendar[] calendars = new ApiRequest<>(auth, Calendar[].class)
                 .execute(GET, METHOD_CALENDAR_GET);
         if (calendars == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(calendars);
     }
@@ -31,7 +32,7 @@ public class CalendarApi {
         Calendar[] calendars = new ApiRequest<>(auth, Calendar[].class)
                 .execute(GET, METHOD_CALENDAR_GET, Map.of(SEARCH_PARAMETER, censored));
         if (calendars == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(calendars);
     }

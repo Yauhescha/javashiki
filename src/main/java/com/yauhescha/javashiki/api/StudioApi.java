@@ -20,7 +20,7 @@ public class StudioApi {
         Studio[] list = new ApiRequest<>(auth, Studio[].class)
                 .execute(GET, METHOD_STUDIOS_GET);
         if (list == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(list);
     }

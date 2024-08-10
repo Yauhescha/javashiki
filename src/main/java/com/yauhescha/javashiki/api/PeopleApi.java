@@ -43,7 +43,7 @@ public class PeopleApi {
         People[] array = new ApiRequest<>(auth, People[].class)
                 .execute(GET, METHOD_PEOPLES_SEARCH, data);
         if (array == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }
