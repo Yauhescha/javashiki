@@ -5,8 +5,10 @@ import com.google.gson.annotations.SerializedName;
 import com.yauhescha.javashiki.model.domen.Image;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Target {
+public class Target implements Serializable {
 
     @SerializedName("id")
     @Expose

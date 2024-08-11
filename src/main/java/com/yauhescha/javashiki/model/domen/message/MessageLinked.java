@@ -5,8 +5,10 @@ import lombok.Data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @Data
-public class MessageLinked {
+public class MessageLinked implements Serializable {
 
     @SerializedName("id")
     @Expose

@@ -1,5 +1,6 @@
 package com.yauhescha.javashiki.model.domen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -7,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
-public class Franchise {
+public class Franchise implements Serializable {
 
     @SerializedName("links")
     @Expose

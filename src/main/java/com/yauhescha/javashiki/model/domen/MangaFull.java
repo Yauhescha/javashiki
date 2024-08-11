@@ -4,12 +4,13 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 //ToDO equals hashcode
 @Data
-public class MangaFull extends Manga{
+public class MangaFull extends Manga implements Serializable {
 
     @SerializedName("english")
     @Expose
@@ -21,7 +22,7 @@ public class MangaFull extends Manga{
 
     @SerializedName("synonyms")
     @Expose
-    private List<String> synonyms =  new ArrayList<>();
+    private List<String> synonyms = new ArrayList<>();
 
     @SerializedName("license_name_ru")
     @Expose
@@ -43,47 +44,47 @@ public class MangaFull extends Manga{
     @SerializedName("franchise")
     @Expose
     private String franchise;
-    
+
     @SerializedName("favoured")
     @Expose
     private Boolean favoured;
-    
+
     @SerializedName("anons")
     @Expose
     private Boolean anons;
-    
+
     @SerializedName("ongoing")
     @Expose
     private Boolean ongoing;
-    
+
     @SerializedName("thread_id")
     @Expose
     private Long threadId;
-    
+
     @SerializedName("topic_id")
     @Expose
     private Long topicId;
-    
+
     @SerializedName("myanimelist_id")
     @Expose
     private Long myanimelistId;
-    
+
     @SerializedName("rates_scores_stats")
     @Expose
     private List<RatesScoresStat> ratesScoresStats = new ArrayList<>();
-    
+
     @SerializedName("rates_statuses_stats")
     @Expose
     private List<RatesStatusesStat> ratesStatusesStats = new ArrayList<>();
-    
+
     @SerializedName("licensors")
     @Expose
     private List<String> licensors = new ArrayList<>();
-    
+
     @SerializedName("genres")
     @Expose
     private List<Genre> genres = new ArrayList<>();
-    
+
     @SerializedName("publishers")
     @Expose
     private List<Publisher> publishers = new ArrayList<>();

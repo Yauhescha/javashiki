@@ -4,8 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class UnreadMessages {
+public class UnreadMessages implements Serializable {
 
     @SerializedName("messages")
     @Expose

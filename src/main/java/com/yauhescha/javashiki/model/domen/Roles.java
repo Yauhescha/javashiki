@@ -1,5 +1,6 @@
 package com.yauhescha.javashiki.model.domen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -8,7 +9,7 @@ import lombok.Data;
 
 //TODO: combine character and person in one class
 @Data
-public class Roles {
+public class Roles implements Serializable {
 
     @SerializedName("roles")
     @Expose
