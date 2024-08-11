@@ -47,8 +47,7 @@ public class UserApi {
         User[] array = new ApiRequest<>(auth, User[].class)
                 .execute(GET, METHOD_USERS_GET, params);
         if (array == null) {
-            //TODO made all return empty list.of
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }
@@ -80,8 +79,7 @@ public class UserApi {
         Ban[] array = new ApiRequest<>(auth, Ban[].class)
                 .execute(GET, String.format(METHOD_USERS_BANS, userId));
         if (array == null) {
-            //TODO made all return empty list.of
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }
@@ -90,8 +88,7 @@ public class UserApi {
         Club[] array = new ApiRequest<>(auth, Club[].class)
                 .execute(GET, String.format(METHOD_USERS_CLUBS, userId));
         if (array == null) {
-            //TODO made all return empty list.of
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }
@@ -100,8 +97,7 @@ public class UserApi {
         History[] array = new ApiRequest<>(auth, History[].class)
                 .execute(GET, String.format(METHOD_USERS_HISTORY, userId));
         if (array == null) {
-            //TODO made all return empty list.of
-            return new ArrayList<>();
+            return List.of();
         }
         return List.of(array);
     }

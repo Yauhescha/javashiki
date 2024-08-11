@@ -5,9 +5,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 //TODO: update all commented field
-public class ExternalLink {
+public class ExternalLink implements Serializable {
 
     @SerializedName("id")
     @Expose

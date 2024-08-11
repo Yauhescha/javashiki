@@ -5,11 +5,12 @@ import com.google.gson.annotations.SerializedName;
 import com.yauhescha.javashiki.model.domen.User;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class UserFull extends User {
+public class UserFull extends User implements Serializable {
 
     //TODO
 //    @SerializedName("name")

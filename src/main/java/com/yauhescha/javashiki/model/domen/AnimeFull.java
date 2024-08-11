@@ -5,13 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 //TODO: update all commented field
-public class AnimeFull extends Anime{
+public class AnimeFull extends Anime implements Serializable {
 
     @SerializedName("rating")
     @Expose
@@ -31,7 +32,7 @@ public class AnimeFull extends Anime{
 
     @SerializedName("license_name_ru")
     @Expose
-    private String  licenseNameRu;
+    private String licenseNameRu;
 
     @SerializedName("duration")
     @Expose
@@ -39,7 +40,7 @@ public class AnimeFull extends Anime{
 
     @SerializedName("description")
     @Expose
-    private String  description;
+    private String description;
 
     @SerializedName("description_html")
     @Expose
@@ -98,11 +99,11 @@ public class AnimeFull extends Anime{
     @SerializedName("fansubbers")
     @Expose
     private List<String> fansubbers = new ArrayList<>();
-    
+
     @SerializedName("fandubbers")
     @Expose
     private List<String> fandubbers = new ArrayList<>();
-    
+
     @SerializedName("licensors")
     @Expose
     private List<String> licensors = new ArrayList<>();
@@ -114,11 +115,11 @@ public class AnimeFull extends Anime{
     @SerializedName("studios")
     @Expose
     private List<Studio> studios = new ArrayList<>();
-    
+
     @SerializedName("videos")
     @Expose
     private List<Video> videos = new ArrayList<>();
-    
+
     @SerializedName("screenshots")
     @Expose
     private List<Screenshot> screenshots = new ArrayList<>();

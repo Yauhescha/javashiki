@@ -16,14 +16,15 @@ import static com.yauhescha.javashiki.request.RequestType.GET;
 
 @RequiredArgsConstructor
 public class AchievementApi {
+    private static final String REQUEST_PARAMETER = "user_id";
+    
     private final AuthShikimori auth;
-    private final String REQUEST_PARAMETER = "user_id";
 
     public List<Achievement> getAchievements(@NonNull int userId) {
         Achievement[] achievements = new ApiRequest<>(auth, Achievement[].class)
                 .execute(GET, METHOD_ACHIEVEMETS_GET, Map.of(REQUEST_PARAMETER, userId));
         if (achievements == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(achievements);
     }

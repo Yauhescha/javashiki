@@ -4,8 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Logo {
+public class Logo implements Serializable {
 
     @SerializedName("original")
     @Expose

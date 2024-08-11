@@ -4,8 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class AnimeMangaRate {
+public class AnimeMangaRate implements Serializable {
 
     @SerializedName("id")
     @Expose

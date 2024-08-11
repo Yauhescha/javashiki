@@ -20,7 +20,7 @@ public class ForumApi {
         Forum[] forums = new ApiRequest<>(auth, Forum[].class)
                 .execute(GET, METHOD_FORUMS_GET);
         if (forums == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(forums);
     }

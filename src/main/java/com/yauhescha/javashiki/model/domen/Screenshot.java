@@ -2,10 +2,16 @@ package com.yauhescha.javashiki.model.domen;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
-public class Screenshot {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Screenshot implements Serializable {
 
     @SerializedName("original")
     @Expose

@@ -4,9 +4,11 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @ToString(callSuper = true)
 @Data
-public class AccessToken {
+public class AccessToken implements Serializable {
     @SerializedName("access_token")
     private String accessToken;
 

@@ -20,7 +20,7 @@ public class PublisherApi {
         Publisher[] list = new ApiRequest<>(auth, Publisher[].class)
                 .execute(GET, METHOD_PUBLISHERS_GET);
         if (list == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(list);
     }

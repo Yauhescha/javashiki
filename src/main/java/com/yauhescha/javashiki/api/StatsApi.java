@@ -19,7 +19,7 @@ public class StatsApi {
         Long[] list = new ApiRequest<>(auth, Long[].class)
                 .execute(GET, METHOD_STATS_ACTIVE_USER_GET);
         if (list == null) {
-            return new ArrayList<>();
+            return List.of();
         }
         return Arrays.asList(list);
     }

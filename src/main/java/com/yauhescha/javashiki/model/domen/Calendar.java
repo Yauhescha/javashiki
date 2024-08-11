@@ -4,8 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Calendar {
+public class Calendar implements Serializable {
 
     @SerializedName("next_episode")
     @Expose
