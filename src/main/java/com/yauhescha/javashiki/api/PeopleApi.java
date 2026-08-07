@@ -24,7 +24,7 @@ public class PeopleApi {
     public Optional<PeopleFull> findById(int peopleId) {
         PeopleFull entity = new ApiRequest<>(auth, PeopleFull.class)
                 .execute(GET, String.format(METHOD_PEOPLES_GET_ID, peopleId));
-        return Optional.of(entity);
+        return Optional.ofNullable(entity);
     }
 
     public List<People> search(String search) {

@@ -7,16 +7,28 @@ import com.yauhescha.javashiki.api.AppearsApi;
 import com.yauhescha.javashiki.api.BanApi;
 import com.yauhescha.javashiki.api.CalendarApi;
 import com.yauhescha.javashiki.api.CharacterApi;
+import com.yauhescha.javashiki.api.ClubApi;
+import com.yauhescha.javashiki.api.CommentApi;
 import com.yauhescha.javashiki.api.ConstantApi;
+import com.yauhescha.javashiki.api.DialogApi;
+import com.yauhescha.javashiki.api.FavoriteApi;
 import com.yauhescha.javashiki.api.ForumApi;
+import com.yauhescha.javashiki.api.FriendApi;
 import com.yauhescha.javashiki.api.GenreApi;
 import com.yauhescha.javashiki.api.MangaApi;
+import com.yauhescha.javashiki.api.MessageApi;
 import com.yauhescha.javashiki.api.PeopleApi;
 import com.yauhescha.javashiki.api.PublisherApi;
+import com.yauhescha.javashiki.api.RanobeApi;
+import com.yauhescha.javashiki.api.ReviewApi;
 import com.yauhescha.javashiki.api.StatsApi;
 import com.yauhescha.javashiki.api.StudioApi;
+import com.yauhescha.javashiki.api.StyleApi;
+import com.yauhescha.javashiki.api.TopicApi;
 import com.yauhescha.javashiki.api.UserApi;
 import com.yauhescha.javashiki.api.UserImageApi;
+import com.yauhescha.javashiki.api.UserRateApi;
+import com.yauhescha.javashiki.api.VideoApi;
 import com.yauhescha.javashiki.model.auth.AccessToken;
 import com.yauhescha.javashiki.util.AuthMethodCreator;
 import com.yauhescha.javashiki.util.Utils;
@@ -35,16 +47,28 @@ public class AuthShikimori {
     private final BanApi banApi = new BanApi(this);
     private final CalendarApi calendarApi = new CalendarApi(this);
     private final CharacterApi characterApi = new CharacterApi(this);
+    private final ClubApi clubApi = new ClubApi(this);
+    private final CommentApi commentApi = new CommentApi(this);
     private final ConstantApi constantApi = new ConstantApi(this);
+    private final DialogApi dialogApi = new DialogApi(this);
+    private final FavoriteApi favoriteApi = new FavoriteApi(this);
     private final ForumApi forumApi = new ForumApi(this);
+    private final FriendApi friendApi = new FriendApi(this);
     private final GenreApi genreApi = new GenreApi(this);
     private final MangaApi mangaApi = new MangaApi(this);
+    private final MessageApi messageApi = new MessageApi(this);
     private final PeopleApi peopleApi = new PeopleApi(this);
     private final PublisherApi publisherApi = new PublisherApi(this);
+    private final RanobeApi ranobeApi = new RanobeApi(this);
+    private final ReviewApi reviewApi = new ReviewApi(this);
     private final StatsApi statsApi = new StatsApi(this);
     private final StudioApi studioApi = new StudioApi(this);
+    private final StyleApi styleApi = new StyleApi(this);
+    private final TopicApi topicApi = new TopicApi(this);
     private final UserApi userApi = new UserApi(this);
     private final UserImageApi userImageApi = new UserImageApi(this);
+    private final UserRateApi userRateApi = new UserRateApi(this);
+    private final VideoApi videoApi = new VideoApi(this);
 
     private final String applicationName;
     private final String applicationClientId;
@@ -115,7 +139,11 @@ public class AuthShikimori {
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
             }
-            return Utils.fromJson(sb.toString(), AccessToken.class);
+            String content = sb.toString().trim();
+            if (content.isEmpty() || content.startsWith("<!DOCTYPE") || content.startsWith("<html")) {
+                return null;
+            }
+            return Utils.fromJson(content, AccessToken.class);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
             return null;

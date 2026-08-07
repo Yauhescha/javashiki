@@ -13,95 +13,86 @@ import com.yauhescha.javashiki.request.ApiRequest;
 import com.yauhescha.javashiki.request.AuthShikimori;
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static com.yauhescha.javashiki.constant.ShikiInfo.*;
 import static com.yauhescha.javashiki.request.RequestType.GET;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_EXTERNAL_LINKS;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_FRANCHISE;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_GET;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_GET_ID;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_RELATED;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_ROLES;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_SIMILAR;
-import static com.yauhescha.javashiki.constant.ShikiInfo.METHOD_MANGAS_TOPICS;
 
-//TODO
 @RequiredArgsConstructor
-public class MangaApi {
+public class RanobeApi {
     private final AuthShikimori auth;
 
-    public List<Manga> searchManga(MangaSearchParameters parameters) {
+    public List<Manga> getRanobe(MangaSearchParameters parameters) {
         Manga[] array = new ApiRequest<>(auth, Manga[].class)
-                .execute(GET, METHOD_MANGAS_GET, parameters.getSearchParameters());
+                .execute(GET, METHOD_RANOBE_GET, parameters.getSearchParameters());
         if (array == null) {
             return List.of();
         }
         return Arrays.asList(array);
     }
 
-    public Optional<MangaFull> getMangaDetail(int mangaId) {
+    public Optional<MangaFull> getRanobeDetail(int ranobeId) {
         MangaFull entity = new ApiRequest<>(auth, MangaFull.class)
-                .execute(GET, String.format(METHOD_MANGAS_GET_ID, mangaId));
+                .execute(GET, String.format(METHOD_RANOBE_GET_ID, ranobeId));
         return Optional.ofNullable(entity);
     }
 
-    public List<Roles> getRoles(int mangaId) {
+    public List<Roles> getRoles(int ranobeId) {
         Roles[] roles = new ApiRequest<>(auth, Roles[].class)
-                .execute(GET, String.format(METHOD_MANGAS_ROLES, mangaId));
+                .execute(GET, String.format(METHOD_RANOBE_ROLES, ranobeId));
         if (roles == null) {
             return List.of();
         }
         return Arrays.asList(roles);
     }
 
-    public List<Manga> getSimilar(int mangaId) {
+    public List<Manga> getSimilar(int ranobeId) {
         Manga[] array = new ApiRequest<>(auth, Manga[].class)
-                .execute(GET, String.format(METHOD_MANGAS_SIMILAR, mangaId));
+                .execute(GET, String.format(METHOD_RANOBE_SIMILAR, ranobeId));
         if (array == null) {
             return List.of();
         }
         return Arrays.asList(array);
     }
 
-    public List<Related> getRelated(int mangaId) {
+    public List<Related> getRelated(int ranobeId) {
         Related[] relatedList = new ApiRequest<>(auth, Related[].class)
-                .execute(GET, String.format(METHOD_MANGAS_RELATED, mangaId));
+                .execute(GET, String.format(METHOD_RANOBE_RELATED, ranobeId));
         if (relatedList == null) {
             return List.of();
         }
         return Arrays.asList(relatedList);
     }
 
-    public Optional<Franchise> getFranchise(int mangaId) {
+    public Optional<Franchise> getFranchise(int ranobeId) {
         Franchise franchise = new ApiRequest<>(auth, Franchise.class)
-                .execute(GET, String.format(METHOD_MANGAS_FRANCHISE, mangaId));
-        return Optional.of(franchise);
+                .execute(GET, String.format(METHOD_RANOBE_FRANCHISE, ranobeId));
+        return Optional.ofNullable(franchise);
     }
 
-    public List<ExternalLink> getExternalLinks(int mangaId) {
+    public List<ExternalLink> getExternalLinks(int ranobeId) {
         ExternalLink[] links = new ApiRequest<>(auth, ExternalLink[].class)
-                .execute(GET, String.format(METHOD_MANGAS_EXTERNAL_LINKS, mangaId));
+                .execute(GET, String.format(METHOD_RANOBE_EXTERNAL_LINKS, ranobeId));
         if (links == null) {
             return List.of();
         }
         return Arrays.asList(links);
     }
 
-    public List<Topic> getTopics(int animeId) {
+    public List<Topic> getTopics(int ranobeId) {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
-                .execute(GET, String.format(METHOD_MANGAS_TOPICS, animeId));
+                .execute(GET, String.format(METHOD_RANOBE_TOPICS, ranobeId));
         if (topics == null) {
             return List.of();
         }
         return Arrays.asList(topics);
     }
 
-    public List<Topic> getTopics(int animeId, MangaTopicParameters parameters) {
+    public List<Topic> getTopics(int ranobeId, MangaTopicParameters parameters) {
         Topic[] topics = new ApiRequest<>(auth, Topic[].class)
-                .execute(GET, String.format(METHOD_MANGAS_TOPICS, animeId), parameters.getSearchParameters());
+                .execute(GET, String.format(METHOD_RANOBE_TOPICS, ranobeId), parameters.getSearchParameters());
         if (topics == null) {
             return List.of();
         }

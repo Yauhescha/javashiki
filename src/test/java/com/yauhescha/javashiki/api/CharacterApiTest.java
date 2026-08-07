@@ -38,7 +38,7 @@ public class CharacterApiTest extends CommonTestData{
         String expectedDescription = "Куноити, родившаяся и выросшая в Деревне Скрытого Листа. Став ученицей одного из саннинов";
         assertTrue(character.getDescription().contains(expectedDescription));
 
-        String expectedDescriptionHtml = "<div class=\"b-text_with_paragraphs\">Куноити, родившаяся и выросшая в Деревне Скрытого Листа. Став ученицей одного из саннинов, <a href=\"https://shikimori.one/characters/2455-orochimaru\" title=\"Orochimaru\" class=\"bubbled b-link\" data-tooltip_url";
+        String expectedDescriptionHtml = "<div class=\"b-text_with_paragraphs\">Куноити, родившаяся и выросшая в Деревне Скрытого Листа. Став ученицей одного из саннинов, <a href=\"https://shikimori.io/characters/2455-orochimaru\" title=\"Orochimaru\" class=\"bubbled b-link\" data-tooltip_url";
         assertTrue(character.getDescriptionHtml().contains(expectedDescriptionHtml));
 
         assertEquals("http://ru.wikipedia.org/w/index.php?title=Список_персонажей_«Наруто»", character.getDescriptionSource());

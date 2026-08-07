@@ -2,7 +2,7 @@ package com.yauhescha.javashiki.constant;
 
 public class ShikiInfo {
 
-    public static final String URL_SHIKIMORI = "https://shikimori.one";
+    public static final String URL_SHIKIMORI = "https://shikimori.io";
     public static final String URL_API_V1 = URL_SHIKIMORI + "/api";
     public static final String URL_API_V2 = URL_SHIKIMORI + "/api/v2";
     public static final String URL_AUTHORIZE = URL_SHIKIMORI + "/oauth/authorize";
@@ -89,4 +89,67 @@ public class ShikiInfo {
     public static final String METHOD_USERS_UNREAD_MESSAGES = METHOD_USERS_GET_ID + "/unread_messages";
     public static final String METHOD_USERS_HISTORY = METHOD_USERS_GET_ID + "/history";
     public static final String METHOD_USERS_BANS = METHOD_USERS_GET_ID + "/bans";
+
+    public static final String METHOD_CLUBS_GET = "/clubs";
+    public static final String METHOD_CLUBS_GET_ID = METHOD_CLUBS_GET + "/%s";
+    public static final String METHOD_CLUBS_ANIMES = METHOD_CLUBS_GET_ID + "/animes";
+    public static final String METHOD_CLUBS_MANGAS = METHOD_CLUBS_GET_ID + "/mangas";
+    public static final String METHOD_CLUBS_RANOBE = METHOD_CLUBS_GET_ID + "/ranobe";
+    public static final String METHOD_CLUBS_CHARACTERS = METHOD_CLUBS_GET_ID + "/characters";
+    public static final String METHOD_CLUBS_COLLECTIONS = METHOD_CLUBS_GET_ID + "/collections";
+    public static final String METHOD_CLUBS_CLUBS = METHOD_CLUBS_GET_ID + "/clubs";
+    public static final String METHOD_CLUBS_MEMBERS = METHOD_CLUBS_GET_ID + "/members";
+    public static final String METHOD_CLUBS_IMAGES = METHOD_CLUBS_GET_ID + "/images";
+    public static final String METHOD_CLUBS_JOIN = METHOD_CLUBS_GET_ID + "/join";
+    public static final String METHOD_CLUBS_LEAVE = METHOD_CLUBS_GET_ID + "/leave";
+
+    public static final String METHOD_COMMENTS_GET = "/comments";
+    public static final String METHOD_COMMENTS_GET_ID = METHOD_COMMENTS_GET + "/%s";
+
+    public static final String METHOD_DIALOGS_GET = "/dialogs";
+    public static final String METHOD_DIALOGS_GET_ID = METHOD_DIALOGS_GET + "/%s";
+
+    public static final String METHOD_FAVORITES_POST = "/favorites";
+    public static final String METHOD_FAVORITES_CREATE = METHOD_FAVORITES_POST + "/%s/%s";
+    public static final String METHOD_FAVORITES_DESTROY = METHOD_FAVORITES_POST + "/%s/%s";
+    public static final String METHOD_FAVORITES_REORDER = METHOD_FAVORITES_POST + "/%s/reorder";
+
+    public static final String METHOD_FRIENDS_POST = "/friends";
+    public static final String METHOD_FRIENDS_CREATE = METHOD_FRIENDS_POST + "/%s";
+
+    public static final String METHOD_MESSAGES_GET = "/messages";
+    public static final String METHOD_MESSAGES_GET_ID = METHOD_MESSAGES_GET + "/%s";
+    public static final String METHOD_MESSAGES_MARK_READ = METHOD_MESSAGES_GET + "/mark_read";
+    public static final String METHOD_MESSAGES_READ_ALL = METHOD_MESSAGES_GET + "/read_all";
+    public static final String METHOD_MESSAGES_DELETE_ALL = METHOD_MESSAGES_GET + "/delete_all";
+
+    public static final String METHOD_RANOBE_GET = "/ranobe";
+    public static final String METHOD_RANOBE_GET_ID = METHOD_RANOBE_GET + "/%s";
+    public static final String METHOD_RANOBE_ROLES = METHOD_RANOBE_GET_ID + "/roles";
+    public static final String METHOD_RANOBE_SIMILAR = METHOD_RANOBE_GET_ID + "/similar";
+    public static final String METHOD_RANOBE_RELATED = METHOD_RANOBE_GET_ID + "/related";
+    public static final String METHOD_RANOBE_FRANCHISE = METHOD_RANOBE_GET_ID + "/franchise";
+    public static final String METHOD_RANOBE_EXTERNAL_LINKS = METHOD_RANOBE_GET_ID + "/external_links";
+    public static final String METHOD_RANOBE_TOPICS = METHOD_RANOBE_GET_ID + "/topics";
+
+    public static final String METHOD_REVIEWS_GET = "/reviews";
+    public static final String METHOD_REVIEWS_GET_ID = METHOD_REVIEWS_GET + "/%s";
+
+    public static final String METHOD_STYLES_GET = "/styles";
+    public static final String METHOD_STYLES_GET_ID = METHOD_STYLES_GET + "/%s";
+    public static final String METHOD_STYLES_PREVIEW = METHOD_STYLES_GET + "/preview";
+
+    public static final String METHOD_TOPICS_GET = "/topics";
+    public static final String METHOD_TOPICS_GET_ID = METHOD_TOPICS_GET + "/%s";
+    public static final String METHOD_TOPICS_UPDATES = METHOD_TOPICS_GET + "/updates";
+    public static final String METHOD_TOPICS_HOT = METHOD_TOPICS_GET + "/hot";
+
+    public static final String METHOD_USER_RATES_GET = "/user_rates";
+    public static final String METHOD_USER_RATES_GET_ID = METHOD_USER_RATES_GET + "/%s";
+    public static final String METHOD_USER_RATES_INCREMENT = METHOD_USER_RATES_GET_ID + "/increment";
+    public static final String METHOD_USER_RATES_CLEANUP = METHOD_USER_RATES_GET + "/%s/cleanup";
+    public static final String METHOD_USER_RATES_RESET = METHOD_USER_RATES_GET + "/%s/reset";
+
+    public static final String METHOD_VIDEOS_GET = "/animes/%s/videos";
+    public static final String METHOD_VIDEOS_GET_ID = "/animes/%s/videos/%s";
 }

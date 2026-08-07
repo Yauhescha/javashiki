@@ -21,7 +21,7 @@ public class CharacterApi {
     public Optional<CharacterFull> findById(int id) {
         CharacterFull entity = new ApiRequest<>(auth, CharacterFull.class)
                 .execute(GET, String.format(METHOD_CHARACTERS_GET_ID, id));
-        return Optional.of(entity);
+        return Optional.ofNullable(entity);
     }
 
     public List<CharacterFull> search(String search) {

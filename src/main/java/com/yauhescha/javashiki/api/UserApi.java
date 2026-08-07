@@ -55,19 +55,19 @@ public class UserApi {
     public Optional<UserFull> findUserById(int id) {
         UserFull entity = new ApiRequest<>(auth, UserFull.class)
                 .execute(GET, String.format(METHOD_USERS_GET_ID, id));
-        return Optional.of(entity);
+        return Optional.ofNullable(entity);
     }
 
     public Optional<UserInfo> findUserInfo(int id) {
         UserInfo entity = new ApiRequest<>(auth, UserInfo.class)
                 .execute(GET, String.format(METHOD_USERS_INFO, id));
-        return Optional.of(entity);
+        return Optional.ofNullable(entity);
     }
 
     public Optional<UnreadMessages> findUnreadMessages(int id) {
         UnreadMessages entity = new ApiRequest<>(auth, UnreadMessages.class)
                 .execute(GET, String.format(METHOD_USERS_UNREAD_MESSAGES, id));
-        return Optional.of(entity);
+        return Optional.ofNullable(entity);
     }
 
     public UserInfo whoIAm() {

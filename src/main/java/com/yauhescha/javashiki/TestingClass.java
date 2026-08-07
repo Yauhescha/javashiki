@@ -2,6 +2,7 @@ package com.yauhescha.javashiki;
 
 import com.yauhescha.javashiki.model.domen.AnimeFull;
 import com.yauhescha.javashiki.model.domen.Roles;
+import com.yauhescha.javashiki.model.domen.user.UserInfo;
 import com.yauhescha.javashiki.request.AuthShikimori;
 
 import java.io.FileOutputStream;
@@ -15,6 +16,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import static com.yauhescha.javashiki.constant.ShikiInfo.URL_SHIKIMORI;
@@ -23,6 +25,20 @@ public class TestingClass {
 
     public static void main(String[] args) {
         AuthShikimori auth = new AuthShikimori();
+//        String applicationName = "Javashiki";
+//        String applicationClientId = "yYGBEgPj6gCWio41cWPoKbTPL2bgFg2gVjBb-EQrUpc";
+//        String applicationClientSecret = "NiAm85gyH25wvtdljbBuDC1lkfnYSDOgshBxX-m8Kto";
+//        String applicationRedirectUri = "urn:ietf:wg:oauth:2.0:oob";
+//        AuthShikimori auth = new AuthShikimori(applicationName, applicationClientId, applicationClientSecret, applicationRedirectUri);
+// or = new AuthShikimori(); to use Api Test application
+        String linkToAuthorizationCode = auth.getUrlToAuthorizationCode(); // use this to get authorization code
+        System.out.println(linkToAuthorizationCode);
+        auth.authorize(new Scanner(System.in).nextLine());
+
+        UserInfo userInfo = auth.getUserApi().whoIAm();
+        System.out.printf(userInfo.toString());
+
+
 
         Optional<AnimeFull> animeDetail = auth.getAnimeApi().getAnimeDetail(20, true);
         if (animeDetail.isPresent()) {
@@ -32,11 +48,11 @@ public class TestingClass {
             roles = roles.stream()
                 .filter(roles1 -> !roles1.getCharacter().getImage().getOriginal().contains("assets/globals/missing/main"))
                 .collect(Collectors.toList());
-            try {
-                saveAnimeDetails(anime, roles);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                saveAnimeDetails(anime, roles);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 
